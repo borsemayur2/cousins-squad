@@ -39,8 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.bdayManager.init();
   }
 
-  // Initialize Dress-Up Lab
-  setupDressupLab();
+  // Initialize Ultimate Avatar Generator & Chaos Shuffler
+  if (window.avatarEngine && typeof window.avatarEngine.initUI === "function") {
+    window.avatarEngine.initUI();
+  }
 
   // Initialize Spinner Game
   let spinner = null;
