@@ -433,6 +433,96 @@ class CartoonSoundEngine {
       window.showToast("🗣️ Ninad: “PAGAL! ...Wait, what did you just ask me? PAGAL!” 😵");
     }
   }
+
+  // 🕵️ Spy Morse Code Telegraph Beeps
+  spyMorse() {
+    if (!this._ensure()) return;
+    try {
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      const beeps = [0.0, 0.08, 0.16, 0.28, 0.36];
+      beeps.forEach((t, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const start = now + t;
+        const dur = (i % 2 === 0) ? 0.05 : 0.09;
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, start);
+
+        gain.gain.setValueAtTime(0.15, start);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + dur);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(start);
+        osc.stop(start + dur + 0.01);
+      });
+    } catch (e) {
+      console.warn("Audio spyMorse error:", e);
+    }
+  }
+
+  // 🔓 Spy Decryption Computer Flurry
+  spyDecode() {
+    if (!this._ensure()) return;
+    try {
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      
+      // Fast ascending tech chirps
+      for (let i = 0; i < 7; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const start = now + (i * 0.05);
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(400 + (i * 180), start);
+        osc.frequency.exponentialRampToValueAtTime(800 + (i * 120), start + 0.04);
+
+        gain.gain.setValueAtTime(0.12, start);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.045);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(start);
+        osc.stop(start + 0.05);
+      }
+
+      // Final triumphant electronic laser ping
+      setTimeout(() => this.laser(), 320);
+    } catch (e) {
+      console.warn("Audio spyDecode error:", e);
+    }
+  }
+
+  // 💥 Heavy Classified Rubber Stamp Slam
+  stampSlam() {
+    if (!this._ensure()) return;
+    try {
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(120, now);
+      osc.frequency.exponentialRampToValueAtTime(35, now + 0.15);
+
+      gain.gain.setValueAtTime(0.6, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.19);
+    } catch (e) {
+      console.warn("Audio stampSlam error:", e);
+    }
+  }
 }
 
 // Global sound instance

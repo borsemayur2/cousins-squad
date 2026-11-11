@@ -44,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     window.avatarEngine.initUI();
   }
 
+  // Initialize Top-Secret Spy Cipher Station
+  if (window.spyStation && typeof window.spyStation.initUI === "function") {
+    window.spyStation.initUI();
+  }
+
   // Initialize Spinner Game
   let spinner = null;
   if (typeof CousinSpinner !== "undefined") {

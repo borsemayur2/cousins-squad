@@ -1177,6 +1177,521 @@ body {
 }
 
 /* ======================================================== */
+/* TOP-SECRET SPY CIPHER & DECODER MACHINE 🕵️‍♂️               */
+/* ======================================================== */
+.spy-cipher-section {
+  background: #0F172A;
+  color: #F8FAFC;
+  border: 4px solid #1E293B;
+  border-radius: var(--border-radius);
+  box-shadow: var(--cartoon-shadow-lg);
+  padding: 34px 24px;
+  margin-bottom: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.spy-cipher-section .section-title {
+  color: #F8FAFC;
+}
+
+.spy-cipher-section .section-subtitle {
+  color: #94A3B8;
+}
+
+.spy-agents-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 24px;
+  padding: 10px 14px;
+  background: #1E293B;
+  border: 2px dashed #475569;
+  border-radius: 99px;
+}
+
+.spy-bar-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.spy-agent-pill {
+  background: #334155;
+  color: #F1F5F9;
+  border: 2px solid #475569;
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 1px 1px 0px #0F172A;
+}
+
+.spy-agent-pill:hover {
+  background: #475569;
+  border-color: #00E5FF;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0px #0F172A;
+}
+
+.spy-agent-pill.active {
+  background: #00E5FF;
+  color: #0F172A;
+  border-color: #FFFFFF;
+  font-weight: 900;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.5), 2px 2px 0px #0F172A;
+  transform: scale(1.05);
+}
+
+.spy-terminal-briefcase {
+  background: #111827;
+  border: 3px solid #374151;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.spy-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 2px solid #1F2937;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.spy-id-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spy-radar-blip {
+  display: inline-block;
+  color: #22C55E;
+  font-size: 1.1rem;
+  animation: radarBlink 0.9s infinite alternate ease-in-out;
+}
+
+@keyframes radarBlink {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+.spy-agency-tag {
+  background: #374151;
+  color: #93C5FD;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.spy-transmission-badge {
+  font-family: monospace;
+  font-size: 0.88rem;
+  color: #F59E0B;
+  font-weight: 700;
+}
+
+.spy-badge-clearance {
+  background: #7F1D1D;
+  color: #FECACA;
+  border: 1.5px solid #EF4444;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.5px;
+}
+
+.spy-dossier-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #1F2937;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  border-left: 4px solid #F59E0B;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+.meta-val {
+  font-size: 0.95rem;
+  color: #F3F4F6;
+}
+
+.cipher-types-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.cipher-select-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #9CA3AF;
+  text-transform: uppercase;
+}
+
+.cipher-type-pill {
+  background: #1F2937;
+  color: #D1D5DB;
+  border: 1.5px solid #374151;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.cipher-type-pill:hover {
+  border-color: #60A5FA;
+  color: #FFFFFF;
+}
+
+.cipher-type-pill.active {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #93C5FD;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+}
+
+.spy-screen-wrapper {
+  background: #030712;
+  border: 2px solid #00E5FF;
+  border-radius: 14px;
+  padding: 22px;
+  position: relative;
+  min-height: 140px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.spy-stamp-classified {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: 'Fredoka', Impact, sans-serif;
+  font-weight: 900;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 5;
+  text-transform: uppercase;
+}
+
+.stamp-top-secret {
+  color: #EF4444;
+  border: 2.5px solid #EF4444;
+  transform: rotate(5deg);
+  opacity: 0.85;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.stamp-slammed {
+  color: #10B981;
+  border: 2.5px solid #10B981;
+  transform: rotate(-6deg);
+  background: rgba(16, 185, 129, 0.12);
+  animation: stampDrop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0.95;
+}
+
+@keyframes stampDrop {
+  0% { transform: scale(2.2) rotate(-22deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-6deg); opacity: 0.95; }
+}
+
+.scrambled-cipher-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #34D399;
+  word-break: break-word;
+  text-shadow: 0 0 8px rgba(52, 211, 153, 0.35);
+}
+
+.hacking-glitch {
+  animation: glitchFlash 0.1s infinite alternate;
+}
+
+@keyframes glitchFlash {
+  0% { opacity: 0.85; transform: skewX(-1deg); }
+  100% { opacity: 1; transform: skewX(1deg); }
+}
+
+.decoded-plain-text {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #F9FAFB;
+}
+
+.decoded-sparkle {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #F59E0B;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.decoded-body {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.intel-briefing-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  background: #1F2937;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 1.5px solid #374151;
+}
+
+.intel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.intel-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #9CA3AF;
+  text-transform: uppercase;
+}
+
+.intel-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #F3F4F6;
+}
+
+.spy-console-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.spy-reveal-hero-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #DC2626 0%, #EF4444 50%, #F59E0B 100%);
+  color: #FFFFFF;
+  border: 3px solid #F87171;
+  border-radius: 16px;
+  padding: 15px 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #991B1B, 0 8px 20px rgba(220, 38, 38, 0.4);
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.spy-reveal-hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #991B1B, 0 10px 25px rgba(220, 38, 38, 0.5);
+}
+
+.spy-reveal-hero-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #991B1B;
+}
+
+.spy-reveal-hero-btn.conceal-mode {
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  border-color: #60A5FA;
+  box-shadow: 0 5px 0 #1D4ED8;
+}
+
+.spy-secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-spy-action {
+  flex: 1;
+  min-width: 160px;
+  background: #1F2937;
+  color: #F3F4F6;
+  border: 2px solid #374151;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-spy-action:hover {
+  background: #374151;
+  transform: translateY(-2px);
+}
+
+.btn-intercept {
+  border-color: #F59E0B;
+  color: #FDE68A;
+}
+
+.btn-voice {
+  border-color: #8B5CF6;
+  color: #DDD6FE;
+}
+
+.btn-copy-spy {
+  border-color: #00E5FF;
+  color: #CFFAFE;
+}
+
+/* Secret Agent Custom Cipher Encoder Card */
+.spy-custom-encoder-card {
+  background: #1E293B;
+  border: 2px solid #334155;
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 10px;
+}
+
+.custom-encoder-header {
+  margin-bottom: 16px;
+}
+
+.custom-encoder-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  margin-bottom: 4px;
+}
+
+.custom-encoder-subtitle {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.custom-encoder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .custom-encoder-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.encoder-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #94A3B8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.encoder-label-inline {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.custom-spy-textarea {
+  width: 100%;
+  background: #0F172A;
+  border: 2px solid #334155;
+  border-radius: 10px;
+  color: #F8FAFC;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.custom-spy-textarea:focus {
+  outline: none;
+  border-color: #00E5FF;
+}
+
+.custom-options-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.custom-cipher-select {
+  background: #0F172A;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  color: #F8FAFC;
+  padding: 6px 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.custom-spy-preview-box {
+  background: #030712;
+  border: 2px solid #334155;
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 80px;
+  color: #34D399;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  word-break: break-word;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.custom-btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ======================================================== */
 /* WHO IS MOST LIKELY TO...? (SPINNER GAME)                  */
 /* ======================================================== */
 .spinner-section {

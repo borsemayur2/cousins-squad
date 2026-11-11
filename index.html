@@ -62,6 +62,7 @@
         <a href="#cousins-section" class="jump-pill">🧒 Meet the Squad</a>
         <a href="#birthday-cannon-section" class="jump-pill" style="background:#FCE4EC; border-color:#E91E63;">🎂 Birthday Cannon</a>
         <a href="#dressup-lab-section" class="jump-pill" style="background:#F3E5F5; border-color:#8E24AA;">🎨 Avatar Generator</a>
+        <a href="#spy-cipher-section" class="jump-pill" style="background:#263238; border-color:#00E5FF; color:#00E5FF; font-weight:800;">🕵️ Spy Cipher</a>
         <a href="#spinner-game-section" class="jump-pill">🎲 Who's Most Likely To?</a>
         <a href="#soundboard-section" class="jump-pill">🔊 Soundboard</a>
         <a href="#rules-section" class="jump-pill">📜 Cousin Rules</a>
@@ -513,7 +514,146 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 4. WHO IS MOST LIKELY TO...? (SPINNER GAME)              -->
+    <!-- 4. TOP-SECRET SPY CIPHER & DECODER MACHINE 🕵️‍♂️              -->
+    <!-- ======================================================== -->
+    <section id="spy-cipher-section" class="spy-cipher-section">
+      <div class="section-header">
+        <span class="section-tag" style="background:#263238; color:#00E5FF; border: 2px solid #00E5FF;">🕵️ TOP SECRET // FOR COUSIN EYES ONLY 🕵️</span>
+        <h2 class="section-title">Classified Spy Cipher & Decoder Machine 🕶️</h2>
+        <p class="section-subtitle">Intercept encrypted transmissions about missing teeth, sofa potato heists, and panipuri operations — then hit REVEAL to declassify!</p>
+      </div>
+
+      <!-- Agent Filter Tabs -->
+      <div class="spy-agents-bar">
+        <span class="spy-bar-label">🎯 Intercept Agent:</span>
+        <button class="spy-agent-pill active" data-agent="all">🌟 All Transmissions</button>
+        <button class="spy-agent-pill" data-agent="devansh">🦷 Devansh</button>
+        <button class="spy-agent-pill" data-agent="ninad">🛋️ Ninad</button>
+        <button class="spy-agent-pill" data-agent="tapasya">🥣 Tapasya</button>
+        <button class="spy-agent-pill" data-agent="virat">🏏 Virat</button>
+        <button class="spy-agent-pill" data-agent="aaditi">👑 Aaditi</button>
+        <button class="spy-agent-pill" data-agent="mayur">💻 Mayur Mama</button>
+      </div>
+
+      <!-- The Briefcase / Classified Terminal -->
+      <div class="spy-terminal-briefcase">
+        
+        <!-- Terminal Top Header / Status Indicators -->
+        <div class="spy-terminal-header">
+          <div class="spy-id-block">
+            <span class="spy-radar-blip">●</span>
+            <span class="spy-agency-tag">CIS INTELLIGENCE</span>
+            <span class="spy-transmission-badge">ID: <span id="spy-transmission-id">TX-701</span></span>
+          </div>
+          <div class="spy-clearance-block">
+            <span id="spy-clearance-badge" class="spy-badge-clearance">LEVEL 5 TOP SECRET</span>
+          </div>
+        </div>
+
+        <!-- Meta Dossier Bar -->
+        <div class="spy-dossier-meta">
+          <div class="meta-item">
+            <span class="meta-label">OPERATIVE:</span>
+            <strong id="spy-agent-badge" class="meta-val">AGENT 00-TOOTH 🦷</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">CODENAME:</span>
+            <strong id="spy-mission-badge" class="meta-val">OPERATION TOOTH FAIRY SHAKEDOWN</strong>
+          </div>
+        </div>
+
+        <!-- Cipher Mode Selector -->
+        <div class="cipher-types-selector">
+          <span class="cipher-select-label">🔏 Cipher Mode:</span>
+          <button class="cipher-type-pill active" data-cipher="emoji">🍎 Emoji Code</button>
+          <button class="cipher-type-pill" data-cipher="alien">👽 Alien Matrix</button>
+          <button class="cipher-type-pill" data-cipher="numbers">🔢 Agent Numbers</button>
+          <button class="cipher-type-pill" data-cipher="caesar">🏛️ Caesar Shift (+3)</button>
+          <button class="cipher-type-pill" data-cipher="anagram">🔀 Anagram Chaos</button>
+        </div>
+
+        <!-- Main Encrypted / Decrypted Screen Box -->
+        <div class="spy-screen-wrapper">
+          <div id="spy-rubber-stamp" class="spy-stamp-classified stamp-top-secret">
+            TOP SECRET // LEVEL 5
+          </div>
+          <div id="spy-terminal-text" class="spy-terminal-content">
+            <!-- Scrambled or Decoded text rendered here by JS -->
+          </div>
+        </div>
+
+        <!-- Revealed Detailed Briefing (Only shown when revealed) -->
+        <div id="spy-revealed-details" class="spy-revealed-details" style="display: none;">
+          <!-- Location, Directive, Punishment rendered here -->
+        </div>
+
+        <!-- Big Action Control Console -->
+        <div class="spy-console-actions">
+          <button id="spy-reveal-btn" class="spy-reveal-hero-btn" title="Decrypt the secret spy message!">
+            🔍 DECRYPT & REVEAL SECRET INTEL!
+          </button>
+          
+          <div class="spy-secondary-actions">
+            <button id="spy-next-btn" class="btn-spy-action btn-intercept" title="Intercept another top-secret dispatch">
+              📡 Intercept Next Transmission
+            </button>
+            <button id="spy-voice-btn" class="btn-spy-action btn-voice" title="Read transmission with robotic spy voice">
+              🗣️ Audio Scrambler
+            </button>
+            <button id="spy-copy-cipher-btn" class="btn-spy-action btn-copy-spy" title="Copy text to send to cousins">
+              📋 Copy Transmission
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Secret Agent Custom Cipher Encoder Card -->
+      <div class="spy-custom-encoder-card">
+        <div class="custom-encoder-header">
+          <h3 class="custom-encoder-title">🕵️‍♂️ Secret Agent Message Encoder (Create Your Own!)</h3>
+          <p class="custom-encoder-subtitle">Type your own secret message below to generate encrypted cipher text you can text to other cousins!</p>
+        </div>
+        
+        <div class="custom-encoder-grid">
+          <div class="custom-input-col">
+            <label for="custom-spy-input" class="encoder-label">📝 Your Secret Note:</label>
+            <textarea id="custom-spy-input" class="custom-spy-textarea" placeholder="e.g. Meet me behind the couch with 3 chocolate cookies. Blame Ninad if Mom hears us!" rows="3"></textarea>
+            
+            <div class="custom-options-row">
+              <label for="custom-cipher-mode" class="encoder-label-inline">Cipher Type:</label>
+              <select id="custom-cipher-mode" class="custom-cipher-select">
+                <option value="emoji">🍎 Emoji Secret Code</option>
+                <option value="alien">👽 Alien Matrix Glyphs</option>
+                <option value="numbers">🔢 Agent Number Cipher</option>
+                <option value="caesar">🏛️ Caesar Shift (+3)</option>
+                <option value="anagram">🔀 Anagram Chaos</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="custom-output-col">
+            <label class="encoder-label">🔒 Encrypted Spy Cipher Preview:</label>
+            <div id="custom-spy-output" class="custom-spy-preview-box">
+              Encoded spy message will appear here in real-time...
+            </div>
+            
+            <div class="custom-btn-row">
+              <button id="custom-spy-copy" class="btn-primary" style="font-size:0.85rem; padding:8px 14px;">
+                📋 Copy Cipher Text
+              </button>
+              <button id="custom-spy-inject" class="btn-secondary" style="font-size:0.85rem; padding:8px 14px;">
+                🚀 Load in Main Decoder
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 5. WHO IS MOST LIKELY TO...? (SPINNER GAME)              -->
     <!-- ======================================================== -->
     <section id="spinner-game-section" class="spinner-section">
       <div class="section-header">
@@ -672,6 +812,7 @@
   <script src="js/excuses.js"></script>
   <script src="js/birthdays.js"></script>
   <script src="js/avatar-generator.js"></script>
+  <script src="js/spy-cipher.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
