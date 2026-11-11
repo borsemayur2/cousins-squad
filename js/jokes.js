@@ -449,6 +449,20 @@ const JOKES_DATABASE = [
     setup: "Why does Mayur Mama wear high-tech specs when traveling across the world?",
     punchline: "To code web apps, spot airport espresso bars, and fix cousin WiFi from 35,000 feet! 💻👓✈️",
     emoji: "💻"
+  },
+  {
+    id: 65,
+    category: "Cousin Chaos",
+    setup: "Why does Ninad smile with his mouth wide open while lying on the sofa?",
+    punchline: "Because with most of his teeth missing, it's the fastest way to catch falling pizza crumbs! 🍕🦷🤣",
+    emoji: "🦷"
+  },
+  {
+    id: 66,
+    category: "Food Fun",
+    setup: "What did the Tooth Fairy say after visiting Ninad's couch?",
+    punchline: "'I ran out of cash! This kid has a window smile and traded 6 teeth for Free Fire diamonds!' 🧚‍♂️🦷🎮",
+    emoji: "🧚‍♂️"
   }
 ];
 

@@ -29,14 +29,14 @@ const DEFAULT_BIRTHDAYS = [
   {
     id: "ninad",
     name: "Ninad",
-    role: "Free Fire King & Sofa Potato",
+    role: "Free Fire King & Gummy Couch Potato",
     icon: "🛋️",
     month: 3, // March
     day: 25,
     birthYear: 2021,
     themeColor: "#4CAF50",
-    sillyDemands: "10,000 Free Fire diamonds, hot pizza delivered directly to my mouth on the couch, and a 15-meter tablet charger!",
-    funQuote: "“I will celebrate my birthday on March 25th 100% horizontally from the living room sofa without getting up!”"
+    sillyDemands: "10,000 Free Fire diamonds, crustless soft pizza for my missing teeth, full payout from the Tooth Fairy, and a 15-meter tablet charger!",
+    funQuote: "“On March 25th, I will smile with my giant tooth gap, clutch a Free Fire match, and inhale cake without chewing!”"
   },
   {
     id: "tapasya",

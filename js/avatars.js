@@ -371,9 +371,23 @@ const AVATAR_SVGS = {
       <circle cx="119" cy="88" r="4.5" fill="#212121" />
       <path d="M112 82 Q120 84 128 82" stroke="#1B5E20" stroke-width="2.5" />
 
-      <!-- Arrogant Lazy Smirk -->
-      <path d="M88 108 Q100 115 116 107" stroke="#2E7D32" stroke-width="3.5" stroke-linecap="round" fill="none" />
-      <path d="M115 107 Q119 104 116 111" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Ninad: Big Cheeky Grin with MOST TEETH MISSING! (Window Gummy Smile) -->
+      <path d="M78 104 Q100 126 122 104 Z" fill="#B71C1C" stroke="#880E4F" stroke-width="1.5" />
+      <!-- Empty Dark Gap in middle (missing teeth) -->
+      <path d="M84 105 Q100 115 116 105 Z" fill="#3E2723" opacity="0.6" />
+      <!-- Only 1 tiny tooth on far left top -->
+      <rect x="83" y="104" width="5" height="5" rx="1" fill="#FFFDE7" stroke="#FFD54F" stroke-width="0.8" />
+      <!-- HUGE EMPTY SPACE IN THE MIDDLE (No teeth!) -->
+      <!-- Only 1 tiny tooth on far right top -->
+      <rect x="112" y="104" width="5" height="4.5" rx="1" fill="#FFFDE7" stroke="#FFD54F" stroke-width="0.8" />
+      <!-- Bottom gum: 1 tiny lonely tooth in center-left -->
+      <rect x="94" y="115" width="4" height="4" rx="1" fill="#FFFDE7" stroke="#FFD54F" stroke-width="0.8" />
+      <!-- Red Tongue in bottom -->
+      <ellipse cx="104" cy="118" rx="8" ry="4" fill="#FF5252" />
+
+      <!-- Cheeky Arrogant Smirk Accent -->
+      <path d="M76 104 Q73 100 78 98" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" fill="none" />
+      <path d="M122 104 Q126 100 123 97" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" fill="none" />
 
       <!-- Ninad's Gaming Tablet with Free Fire Flames! -->
       <g transform="translate(118, 100) rotate(12)">

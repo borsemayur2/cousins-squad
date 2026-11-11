@@ -148,7 +148,7 @@ const COUSINS_DATA = [
   {
     id: "ninad",
     name: "Ninad",
-    role: "The Free Fire King & Sofa Potato Supreme",
+    role: "The Free Fire King & Gummy Couch Potato",
     gender: "M",
     isEldest: false,
     ageRank: "Rank #5 (Lord of the Couch)",
@@ -157,27 +157,27 @@ const COUSINS_DATA = [
     bdayDay: 25,
     themeColor: "#4CAF50",
     bgColor: "#E8F5E9",
-    badge: "🛋️ 100% HORIZONTAL ON SOFA • FREE FIRE PRO",
-    loves: ["🎮 Free Fire Mobile Gaming", "🍕 Non-stop Food & Snacks", "🛋️ Never Leaving the Couch"],
-    tagline: "Permanently fused with the sofa cushions. Feared in Free Fire lobbies. Demands room service from his sisters.",
-    quote: "“Don’t block my WiFi! I’m in the final Free Fire safe zone and someone bring me chips right now!”",
-    superpower: "🛋️ Gravitational Sofa Bonding: Can remain completely horizontal on the sofa for 18 consecutive hours without losing muscle tone.",
+    badge: "🛋️ HORIZONTAL ON SOFA • MOST TEETH MISSING 🦷",
+    loves: ["🎮 Free Fire Mobile Gaming", "🍕 Non-stop Food & Snacks", "🦷 Showing Off His Missing Teeth Gap", "🛋️ Never Leaving the Couch"],
+    tagline: "Has most teeth missing, but zero cares given! Inhales snacks through the gaps and dominates Free Fire horizontally.",
+    quote: "“Who needs front teeth when you can inhale pizza like a vacuum cleaner?! Also, don't block my Free Fire WiFi!”",
+    superpower: "🦷 Gappy Whistle Siren: Can whistle loudly right through the giant missing-teeth window in his smile to summon snacks without moving.",
     stats: {
       freeFireKills: 100,
       sofaAdhesion: 100,
-      appetiteForSnacks: 99,
-      desireToWalk: 0.01
+      missingTeethRate: 85,
+      snackSuctionPower: 99
     },
-    bustedFor: "Using his toes to pull the snack bowl closer because getting up off the sofa was 'statistically inefficient'.",
-    mostLikelyTo: "Clutch a 1v4 victory in Free Fire while completely surrounded by 6 empty chip packets on the couch.",
-    secretWeapon: "The Arrogant Tablet Glare™ that silences anyone trying to make him go outside and touch grass.",
-    weakness: "A flat 1% battery warning on his tablet and someone stepping between him and the router.",
-    funFact: "Has developed a specialized telepathic voice to order food from whoever is walking past the sofa without pausing his game!",
+    bustedFor: "Claiming the Tooth Fairy stole all his missing teeth, all the cookies, and the TV remote while he was napping on the couch.",
+    mostLikelyTo: "Flash his hilarious gappy window smile on video calls while simultaneously clutching an impossible 1v4 Free Fire victory.",
+    secretWeapon: "The Gummy Window Grin™ that melts anyone's anger when he refuses to get off the sofa.",
+    weakness: "Corn on the cob, crunchy apples, and anything requiring more than 2 teeth to chew.",
+    funFact: "Has fewer teeth than anyone in the house, but eats pizza faster than Devansh, Virat, and Mayur Mama combined!",
     avatarSvgProps: {
       hair: "curly-messy",
       accessory: "gaming-tablet-fire",
       glasses: "none",
-      expression: "arrogant-couch-smirk"
+      expression: "missing-teeth-grin"
     },
     imageFile: "public/avatars/ninad.jpg"
   },

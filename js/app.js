@@ -442,6 +442,8 @@ function formatStatName(camelStr) {
     sittingStillMinutes: "Sitting Still Time",
     freeFireKills: "Free Fire Skills 🔥",
     sofaAdhesion: "Sofa Stickiness 🛋️",
+    missingTeethRate: "Missing Teeth % 🦷",
+    snackSuctionPower: "Snack Inhale Suction 🍕",
     appetiteForSnacks: "Snack Appetite 🍕",
     desireToWalk: "Desire To Walk",
     codingProwess: "Software & Coding 💻",
