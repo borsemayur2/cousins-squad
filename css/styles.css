@@ -1128,6 +1128,285 @@ body {
   .cousin-card { margin: 0 4px; }
 }
 
+/* ======================================================== */
+/* THE ULTIMATE EXCUSE GENERATOR 10,000™                     */
+/* ======================================================== */
+.excuse-machine-section {
+  margin: 20px auto 70px;
+  max-width: 860px;
+}
+
+.excuse-card {
+  background: #FFFFFF;
+  border: 4px solid #1E293B;
+  border-radius: var(--border-radius);
+  box-shadow: var(--cartoon-shadow-lg);
+  padding: 34px 28px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.excuse-machine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed #CFD8DC;
+}
+
+.excuse-id-badge {
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #37474F;
+  background: #ECEFF1;
+  padding: 4px 12px;
+  border-radius: 99px;
+  border: 1px solid #B0BEC5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pulse-indicator {
+  color: #00E676;
+  font-size: 1.1rem;
+  animation: pulseDot 1s infinite alternate;
+}
+
+@keyframes pulseDot {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+.excuse-counter-badge {
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #D84315;
+  background: #FBE9E7;
+  padding: 4px 14px;
+  border-radius: 99px;
+  border: 2px solid #FF7043;
+}
+
+.excuse-situation-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.situation-pill {
+  background: #F8FAFC;
+  border: 2px solid #94A3B8;
+  border-radius: 99px;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.situation-pill:hover {
+  background: #FFF9C4;
+  border-color: #1E293B;
+  transform: translateY(-2px);
+}
+
+.situation-pill.active {
+  background: #FF6D00;
+  color: #FFFFFF;
+  border-color: #1E293B;
+  box-shadow: 2px 2px 0px #1E293B;
+}
+
+.accusation-box {
+  background: #FFF1F2;
+  border: 3px dashed #F43F5E;
+  border-radius: var(--border-radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.accusation-label {
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: #BE123C;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.accusation-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #881337;
+  font-style: italic;
+}
+
+.excuse-display-container {
+  background: #F0FDF4;
+  border: 3px solid #1E293B;
+  border-radius: var(--border-radius-sm);
+  padding: 26px 24px;
+  margin-bottom: 24px;
+  position: relative;
+  box-shadow: 3px 3px 0px #1E293B;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.quote-mark-watermark {
+  position: absolute;
+  top: -15px;
+  left: 12px;
+  font-family: serif;
+  font-size: 5rem;
+  color: #86EFAC;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.excuse-text {
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-weight: 800;
+  color: #14532D;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+
+/* Meta Grid: Believability + Stamp */
+.excuse-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 650px) {
+  .excuse-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.believability-box {
+  background: #F8FAFC;
+  border: 2px solid #CBD5E1;
+  border-radius: var(--border-radius-sm);
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.believability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.meta-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.believability-score-val {
+  font-family: 'Titan One', cursive;
+  font-size: 1.25rem;
+  color: #059669;
+}
+
+.meter-track {
+  width: 100%;
+  height: 14px;
+  background: #E2E8F0;
+  border-radius: 99px;
+  border: 2px solid #1E293B;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.meter-note {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.certification-box {
+  background: #FFFDE7;
+  border: 2px solid #FDE047;
+  border-radius: var(--border-radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rubber-stamp {
+  margin-top: 6px;
+  border: 3px dashed #DC2626;
+  border-radius: 12px;
+  padding: 6px 14px;
+  transform: rotate(-3deg);
+  text-align: center;
+  background: rgba(254, 226, 226, 0.6);
+  animation: stampSplat 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes stampSplat {
+  0% { transform: scale(1.6) rotate(15deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+.stamp-seal {
+  font-family: 'Titan One', cursive;
+  font-size: 0.88rem;
+  color: #B91C1C;
+  letter-spacing: 0.5px;
+}
+
+.stamp-signature {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #7F1D1D;
+  margin-top: 2px;
+}
+
+.excuse-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.excuse-generate-btn {
+  background: #FF6D00 !important;
+  font-size: 1.15rem !important;
+  padding: 14px 28px !important;
+}
+
+.excuse-generate-btn:hover {
+  background: #E65100 !important;
+}
+
 /* Sound Pad Active Press Feedback */
 .sound-pad-btn.sound-active {
   transform: scale(0.92) translateY(2px) !important;

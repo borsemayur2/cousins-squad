@@ -58,6 +58,7 @@
       <!-- Quick Nav Pills -->
       <nav class="hero-pills-nav" aria-label="Page navigation">
         <a href="#jokes-section" class="jump-pill">🤪 Joke Machine</a>
+        <a href="#excuses-section" class="jump-pill" style="background:#FFF9C4; border-color:#FF8F00;">🤥 Excuse 10,000</a>
         <a href="#cousins-section" class="jump-pill">🧒 Meet the Squad</a>
         <a href="#dressup-lab-section" class="jump-pill">🎨 Silly Dress-Up</a>
         <a href="#spinner-game-section" class="jump-pill">🎲 Who's Most Likely To?</a>
@@ -116,6 +117,92 @@
           </button>
           <button id="react-tomato-btn" class="reaction-btn" title="Throw a cartoon tomato!">
             🍅 BOOO (<span id="tomato-counter">3</span>)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- THE ULTIMATE EXCUSE GENERATOR 10,000™                     -->
+    <!-- ======================================================== -->
+    <section id="excuses-section" class="excuse-machine-section">
+      <div class="section-header">
+        <span class="section-tag" style="background:#FFD600; color:#E65100;">🛡️ TOP-SECRET KID DEFENSE 🛡️</span>
+        <h2 class="section-title">The Ultimate Excuse Generator 10,000™ 🤥</h2>
+        <p class="section-subtitle">Over 7,000,000+ Bulletproof Excuses for Messy Rooms, Missing Homework & Stolen Cookies!</p>
+      </div>
+
+      <div class="excuse-card">
+        <!-- Machine Header / Status -->
+        <div class="excuse-machine-header">
+          <div class="excuse-id-badge">
+            <span class="pulse-indicator">●</span> FILING ID: <span id="excuse-id-num">#8,492,011</span>
+          </div>
+          <div class="excuse-counter-badge">
+            🔥 10,000+ EXCUSES READY
+          </div>
+        </div>
+
+        <!-- Situation Selector Pills -->
+        <div class="excuse-situation-selector">
+          <button class="situation-pill active" data-situation="room">🌪️ Messy Room</button>
+          <button class="situation-pill" data-situation="homework">📝 Homework</button>
+          <button class="situation-pill" data-situation="snacks">🍪 Cookie Heist</button>
+          <button class="situation-pill" data-situation="bedtime">🌙 Past Bedtime</button>
+          <button class="situation-pill" data-situation="crash">💥 Loud Crash</button>
+          <button class="situation-pill" data-situation="remote">📺 TV Remote</button>
+          <button class="situation-pill" data-situation="running">⚡ Zoomies</button>
+          <button class="situation-pill" data-situation="wildcard">🎲 Surprise Me!</button>
+        </div>
+
+        <!-- The Accusation Box -->
+        <div class="accusation-box">
+          <span class="accusation-label">🚨 THE ACCUSATION:</span>
+          <p id="excuse-prompt" class="accusation-text">"Why is your bedroom a complete hurricane disaster zone?"</p>
+        </div>
+
+        <!-- The Generated Masterpiece Excuse Display -->
+        <div class="excuse-display-container">
+          <div class="quote-mark-watermark">“</div>
+          <p id="excuse-text" class="excuse-text">
+            Loading your scientifically ironclad alibi...
+          </p>
+        </div>
+
+        <!-- Believability Meter & Seal Grid -->
+        <div class="excuse-meta-grid">
+          <!-- Believability Meter -->
+          <div class="believability-box">
+            <div class="believability-header">
+              <span class="meta-label">📊 Mom & Dad Believability Score:</span>
+              <span id="believability-percent" class="believability-score-val">87.2%</span>
+            </div>
+            <div class="meter-track">
+              <div id="meter-fill" class="meter-fill" style="width: 87.2%; background: #00E676;"></div>
+            </div>
+            <p id="believability-note" class="meter-note">😇 Ultra-convincing! Keep a straight face and you're golden!</p>
+          </div>
+
+          <!-- Official Cousin Certification Seal -->
+          <div class="certification-box">
+            <span class="meta-label">⚖️ Official Endorsement:</span>
+            <div class="rubber-stamp" id="rubber-stamp">
+              <div id="certifier-seal" class="stamp-seal">COUSIN HIGH COURT: APPROVED</div>
+              <div id="certifier-name" class="stamp-signature">Verified by 👑 Aaditi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Excuse Generator Controls -->
+        <div class="excuse-controls">
+          <button id="generate-excuse-btn" class="btn-primary excuse-generate-btn">
+            🎲 GENERATE EXCUSE 10,000!
+          </button>
+          <button id="voice-excuse-btn" class="btn-secondary" title="Read excuse aloud with cartoon voice">
+            🗣️ Speak Aloud
+          </button>
+          <button id="copy-excuse-btn" class="btn-secondary" title="Copy excuse text to clipboard">
+            📋 Copy Excuse
           </button>
         </div>
       </div>
@@ -360,6 +447,7 @@
   <script src="js/sound.js"></script>
   <script src="js/avatars.js"></script>
   <script src="js/spinner.js"></script>
+  <script src="js/excuses.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

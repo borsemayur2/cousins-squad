@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load Initial Joke on Page Reload! (Requirement: "generate random jokes funny homorus on reload")
   loadRandomJoke();
 
+  // Initialize The Ultimate Excuse Generator 10,000™
+  initExcuseGenerator();
+
   // Initialize Dress-Up Lab
   setupDressupLab();
 
@@ -167,6 +170,159 @@ function speakJoke() {
 
   window.speechSynthesis.speak(utterance);
 }
+
+// ========================================================
+// THE ULTIMATE EXCUSE GENERATOR 10,000™ CONTROLLER
+// ========================================================
+let activeSituation = "room";
+let currentExcuseData = null;
+
+function initExcuseGenerator() {
+  if (typeof generateUltimateExcuse !== "function") return;
+
+  const generateBtn = document.getElementById("generate-excuse-btn");
+  const voiceBtn = document.getElementById("voice-excuse-btn");
+  const copyBtn = document.getElementById("copy-excuse-btn");
+  const situationPills = document.querySelectorAll(".situation-pill");
+
+  situationPills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      situationPills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      activeSituation = pill.dataset.situation;
+      if (window.soundFx) window.soundFx.pop();
+      renderNewExcuse(activeSituation);
+    });
+  });
+
+  if (generateBtn) {
+    generateBtn.addEventListener("click", () => {
+      if (window.soundFx) window.soundFx.boing();
+      if (window.triggerConfetti) window.triggerConfetti(60);
+      renderNewExcuse(activeSituation);
+    });
+  }
+
+  if (voiceBtn) {
+    voiceBtn.addEventListener("click", speakCurrentExcuse);
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", copyCurrentExcuse);
+  }
+
+  // Load initial excuse
+  renderNewExcuse(activeSituation);
+}
+
+function renderNewExcuse(situationKey) {
+  if (typeof generateUltimateExcuse !== "function") return;
+
+  currentExcuseData = generateUltimateExcuse(situationKey);
+
+  const promptEl = document.getElementById("excuse-prompt");
+  const textEl = document.getElementById("excuse-text");
+  const idEl = document.getElementById("excuse-id-num");
+  const scoreEl = document.getElementById("believability-percent");
+  const fillEl = document.getElementById("meter-fill");
+  const noteEl = document.getElementById("believability-note");
+  const sealEl = document.getElementById("certifier-seal");
+  const certNameEl = document.getElementById("certifier-name");
+  const stampEl = document.getElementById("rubber-stamp");
+
+  if (promptEl) promptEl.innerText = `"${currentExcuseData.prompt}"`;
+  
+  if (textEl) {
+    textEl.innerText = currentExcuseData.excuse;
+    textEl.classList.remove("pop-in");
+    void textEl.offsetWidth;
+    textEl.classList.add("pop-in");
+  }
+
+  if (idEl) idEl.innerText = `#${currentExcuseData.excuseNumber.toLocaleString()}`;
+  
+  if (scoreEl) scoreEl.innerText = `${currentExcuseData.believability.score}%`;
+  
+  if (fillEl) {
+    const score = currentExcuseData.believability.score;
+    fillEl.style.width = `${score}%`;
+    if (score >= 75) fillEl.style.background = "#00E676";
+    else if (score >= 40) fillEl.style.background = "#FFD600";
+    else fillEl.style.background = "#FF5252";
+  }
+
+  if (noteEl) noteEl.innerText = currentExcuseData.believability.note;
+  if (sealEl) sealEl.innerText = currentExcuseData.certifier.seal;
+  if (certNameEl) certNameEl.innerText = `Verified by ${currentExcuseData.certifier.name}`;
+
+  if (stampEl) {
+    stampEl.classList.remove("stamp-pop");
+    void stampEl.offsetWidth;
+    stampEl.classList.add("stamp-pop");
+  }
+}
+
+function speakCurrentExcuse() {
+  if (!currentExcuseData || !('speechSynthesis' in window)) {
+    if (window.showToast) window.showToast("⚠️ Speech synthesis unavailable!");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+  if (window.soundFx) window.soundFx.magic();
+
+  const voiceBtn = document.getElementById("voice-excuse-btn");
+  const utterance = new SpeechSynthesisUtterance(currentExcuseData.excuse);
+  utterance.pitch = 1.3;
+  utterance.rate = 1.02;
+
+  const voices = window.speechSynthesis.getVoices();
+  if (voices && voices.length > 0) {
+    const funVoice = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Junior") || v.name.includes("Child") || v.name.includes("Samantha") || v.name.includes("Victoria")));
+    if (funVoice) utterance.voice = funVoice;
+  }
+
+  if (voiceBtn) {
+    voiceBtn.innerText = "🔊 Reading Excuse...";
+    voiceBtn.classList.add("reading-active");
+  }
+
+  utterance.onend = utterance.onerror = () => {
+    if (voiceBtn) {
+      voiceBtn.innerText = "🗣️ Speak Aloud";
+      voiceBtn.classList.remove("reading-active");
+    }
+  };
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function copyCurrentExcuse() {
+  if (!currentExcuseData) return;
+
+  const textToCopy = `Official Cousin Excuse #${currentExcuseData.excuseNumber.toLocaleString()}:\n"${currentExcuseData.excuse}"\n— ${currentExcuseData.certifier.seal} (${currentExcuseData.certifier.name})`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      if (window.soundFx) window.soundFx.tada();
+      if (window.showToast) window.showToast("📋 Excuse copied to clipboard! Go convince your parents!");
+    }).catch(() => fallbackCopy(textToCopy));
+  } else {
+    fallbackCopy(textToCopy);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  ta.remove();
+  if (window.soundFx) window.soundFx.tada();
+  if (window.showToast) window.showToast("📋 Excuse copied to clipboard!");
+}
+
 
 // ========================================================
 // COUSINS SQUAD CARDS RENDERING
