@@ -186,7 +186,7 @@ const COUSINS_DATA = [
       glasses: "none",
       expression: "missing-teeth-pagal-grin"
     },
-    imageFile: "public/avatars/ninad.jpg"
+    imageFile: "public/avatars/ninad.jpg?v=couch_gamer"
   },
   {
     id: "mayur",
