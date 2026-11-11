@@ -160,6 +160,39 @@ const COUSINS_DATA = [
       expression: "cheeky-cookie"
     },
     imageFile: "public/avatars/ninad.jpg"
+  },
+  {
+    id: "mayur",
+    name: "Mayur Mama",
+    role: "The Cool Tech Mama & Software Wizard",
+    gender: "M",
+    isEldest: false,
+    isMama: true,
+    ageRank: "Family IT Legend (The WiFi Boss)",
+    themeColor: "#673AB7",
+    bgColor: "#EDE7F6",
+    badge: "💻 CHIEF TECH MAMA & WIFI GOD",
+    tagline: "Fixer of laptops, builder of funny websites, and master of the secret WiFi password.",
+    quote: "“No, the internet is not broken! You just have 43 Roblox tabs and 12 YouTube videos playing simultaneously!”",
+    superpower: "📡 Infinite Bandwidth Boost: Can restart the router from 50 feet away and code an entire app before the pizza arrives.",
+    stats: {
+      techSavviness: 100,
+      wifiFixSpeed: 99,
+      codingPassion: 100,
+      gadgetCollection: 98
+    },
+    bustedFor: "Secretly playing video games past bedtime and claiming 'It's a critical software stress test!'",
+    mostLikelyTo: "Answer 'Have you tried turning it off and on again?' to every single problem in life.",
+    secretWeapon: "The Master Router Admin Password that controls the kids' screen time.",
+    weakness: "When all 5 cousins simultaneously yell: 'Mama, can you install Minecraft mods on my tablet?!'",
+    funFact: "Actually built this entire website for the cousins because explaining 'The Cloud' was taking too long!",
+    avatarSvgProps: {
+      hair: "neat-dark-beard",
+      accessory: "laptop-glow",
+      glasses: "tech-specs",
+      expression: "tech-smile"
+    },
+    imageFile: "public/avatars/mayur.jpg"
   }
 ];
 

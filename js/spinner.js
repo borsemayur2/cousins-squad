@@ -60,6 +60,16 @@ const SCENARIOS = [
     question: "Who is most likely to build a fortress out of sofa cushions and declare independence?",
     cousinId: "ninad",
     reason: "Passports are required to enter Fort Ninad (Toll fee: 2 gummy bears). 🏰🧸"
+  },
+  {
+    question: "Who is most likely to answer 'Have you tried turning it off and on again?' when someone spills orange juice?",
+    cousinId: "mayur",
+    reason: "Mayur Mama firmly believes a hard reboot fixes 99.9% of all universe errors! 💻🔄🧃"
+  },
+  {
+    question: "Who is most likely to have 64 open browser tabs across 3 screens and claim every single one is vital?",
+    cousinId: "mayur",
+    reason: "Mayur Mama's RAM usage is higher than the international space station! 🖥️🚀🧠"
   }
 ];
 
@@ -116,7 +126,7 @@ class CousinSpinner {
 
     // Drumroll / flicker effect
     let counter = 0;
-    const cousinIds = ["aaditi", "tapasya", "devansh", "virat", "ninad"];
+    const cousinIds = ["aaditi", "tapasya", "devansh", "virat", "ninad", "mayur"];
     
     const interval = setInterval(() => {
       counter++;

@@ -345,7 +345,103 @@ const AVATAR_SVGS = {
       `}
       ${customAccessory ? renderCustomAccessory(customAccessory) : ''}
     </svg>
+  `,
+
+  mayur: (customHat = null, customAccessory = null) => `
+    <svg viewBox="0 0 200 200" class="avatar-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="bg-mayur" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#EDE7F6" />
+          <stop offset="100%" stop-color="#B39DDB" />
+        </radialGradient>
+        <linearGradient id="hoodie-tech" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3F51B5" />
+          <stop offset="100%" stop-color="#283593" />
+        </linearGradient>
+      </defs>
+      <!-- Background Circle -->
+      <circle cx="100" cy="100" r="95" fill="url(#bg-mayur)" stroke="#512DA8" stroke-width="5" />
+
+      <!-- Floating Tech Code & WiFi Signals -->
+      <g class="animated-float" opacity="0.8">
+        <text x="24" y="55" font-family="monospace" font-size="14" font-weight="bold" fill="#311B92">&lt;/&gt;</text>
+        <text x="145" y="50" font-family="monospace" font-size="16" font-weight="bold" fill="#00E5FF">📶</text>
+        <text x="28" y="115" font-family="monospace" font-size="11" font-weight="bold" fill="#7C4DFF">0101</text>
+      </g>
+
+      <!-- Body / Navy Tech Hoodie -->
+      <path d="M42 185 C42 142, 66 132, 100 132 C134 132, 158 142, 158 185 Z" fill="url(#hoodie-tech)" />
+      
+      <!-- Glowing Code Bracket on chest -->
+      <rect x="85" y="152" width="30" height="22" rx="4" fill="#1A237E" stroke="#00E5FF" stroke-width="1.5" />
+      <text x="100" y="168" font-family="monospace" font-size="12" font-weight="bold" fill="#76FF03" text-anchor="middle">&lt;DEV&gt;</text>
+
+      <!-- Head & Neck -->
+      <rect x="90" y="112" width="20" height="26" rx="5" fill="#F5CBA7" />
+      <ellipse cx="100" cy="90" rx="42" ry="46" fill="#F5CBA7" />
+
+      <!-- Ears -->
+      <circle cx="56" cy="92" r="10" fill="#F5CBA7" />
+      <circle cx="144" cy="92" r="10" fill="#F5CBA7" />
+
+      <!-- Short Neat Tech Haircut -->
+      <path d="M56 80 C54 44, 146 44, 144 80 C135 60, 115 54, 100 55 C85 54, 65 60, 56 80 Z" fill="#212121" />
+      <!-- Stylish side fade / texture -->
+      <path d="M56 80 Q62 65 72 60 Q65 75 58 88 Z" fill="#212121" />
+      <path d="M144 80 Q138 65 128 60 Q135 75 142 88 Z" fill="#212121" />
+
+      <!-- Friendly Trim Beard / Stubble -->
+      <path d="M68 96 C72 125, 128 125, 132 96 C126 120, 74 120, 68 96 Z" fill="#3E2723" opacity="0.6" />
+      <path d="M85 116 Q100 125 115 116 Q100 128 85 116 Z" fill="#212121" />
+
+      <!-- Warm Friendly Tech Eyes & Brows -->
+      <path d="M72 74 Q83 69 92 73" stroke="#212121" stroke-width="3" stroke-linecap="round" fill="none" />
+      <path d="M108 73 Q117 69 128 74" stroke="#212121" stroke-width="3" stroke-linecap="round" fill="none" />
+      
+      <ellipse cx="82" cy="85" rx="6" ry="8" fill="#FFFFFF" />
+      <circle cx="83" cy="85" r="4.5" fill="#212121" />
+      <circle cx="85" cy="83" r="1.5" fill="#FFFFFF" />
+
+      <ellipse cx="118" cy="85" rx="6" ry="8" fill="#FFFFFF" />
+      <circle cx="117" cy="85" r="4.5" fill="#212121" />
+      <circle cx="119" cy="83" r="1.5" fill="#FFFFFF" />
+
+      <!-- Modern Rectangular Tech Glasses -->
+      <rect x="68" y="75" width="28" height="20" rx="5" fill="none" stroke="#212121" stroke-width="3.5" />
+      <rect x="104" y="75" width="28" height="20" rx="5" fill="none" stroke="#212121" stroke-width="3.5" />
+      <line x1="96" y1="84" x2="104" y2="84" stroke="#212121" stroke-width="3.5" />
+      <!-- Subtle Blue Light Lens Glint -->
+      <line x1="72" y1="78" x2="80" y2="90" stroke="#80D8FF" stroke-width="1.5" opacity="0.6" />
+      <line x1="108" y1="78" x2="116" y2="90" stroke="#80D8FF" stroke-width="1.5" opacity="0.6" />
+
+      <!-- Cheerful Smile -->
+      <path d="M86 106 Q100 118 114 106" stroke="#D32F2F" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <path d="M92 107 Q100 114 108 107" fill="#FFFFFF" />
+
+      <!-- Glowing Mini Laptop / Tablet in Hand -->
+      <g transform="translate(132, 115) rotate(15)">
+        <rect x="0" y="0" width="30" height="22" rx="3" fill="#37474F" stroke="#263238" stroke-width="2" />
+        <rect x="2" y="2" width="26" height="18" rx="2" fill="#00E5FF" opacity="0.9" />
+        <line x1="5" y1="6" x2="18" y2="6" stroke="#004D40" stroke-width="1.5" />
+        <line x1="5" y1="10" x2="22" y2="10" stroke="#004D40" stroke-width="1.5" />
+        <line x1="5" y1="14" x2="14" y2="14" stroke="#004D40" stroke-width="1.5" />
+      </g>
+
+      <!-- Headgear (Default: Cool Wireless Developer Headset) -->
+      ${customHat ? renderCustomHat(customHat) : `
+        <g>
+          <!-- Headset Band -->
+          <path d="M54 90 C50 35, 150 35, 146 90" stroke="#424242" stroke-width="4.5" fill="none" />
+          <!-- Left Ear Cushion -->
+          <rect x="46" y="80" width="10" height="20" rx="4" fill="#00E5FF" stroke="#0097A7" stroke-width="1.5" />
+          <!-- Right Ear Cushion -->
+          <rect x="144" y="80" width="10" height="20" rx="4" fill="#00E5FF" stroke="#0097A7" stroke-width="1.5" />
+        </g>
+      `}
+      ${customAccessory ? renderCustomAccessory(customAccessory) : ''}
+    </svg>
   `
+
 };
 
 // Silly Hats and Accessories

@@ -346,6 +346,36 @@ class CartoonSoundEngine {
     }
   }
 
+  // 🤖 Tech Computer Power-up (for Mayur Mama!)
+  techBeep() {
+    if (!this._ensure()) return;
+    try {
+      const ctx = this.ctx;
+      const now = ctx.currentTime;
+      const freqs = [330, 440, 554.37, 659.25, 880]; // E4, A4, C#5, E5, A5 arpeggio
+
+      freqs.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const t = now + idx * 0.05;
+
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(freq, t);
+
+        gain.gain.setValueAtTime(0.15, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(t);
+        osc.stop(t + 0.11);
+      });
+    } catch (e) {
+      console.warn("Audio techBeep error:", e);
+    }
+  }
+
   // 🎺 Ta-Da Fanfare!
   tada() {
     if (!this._ensure()) return;

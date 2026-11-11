@@ -181,6 +181,7 @@ function renderCousinsSquad() {
     <div class="cousin-card" id="card-${cousin.id}" style="border-top: 8px solid ${cousin.themeColor}">
       <div class="card-header-banner" style="background: ${cousin.bgColor}">
         ${cousin.isEldest ? '<div class="eldest-crown-tag">👑 ELDEST BOSS</div>' : ''}
+        ${cousin.isMama ? '<div class="eldest-crown-tag" style="background:#512DA8; color:#FFF; border-color:#311B92;">💻 TECH MAMA</div>' : ''}
         <div class="card-rank-badge">${cousin.ageRank}</div>
         
         <div class="avatar-wrapper" onclick="playCousinVoice('${cousin.id}')" title="Click for ${cousin.name}'s sound!">
@@ -262,7 +263,11 @@ function formatStatName(camelStr) {
     stealthLevel: "Stealth Ninja Level",
     cookieHeists: "Cookie Heists",
     blamingOthers: "Blaming Others",
-    bedtimeObedience: "Bedtime Obedience"
+    bedtimeObedience: "Bedtime Obedience",
+    techSavviness: "Tech Savviness",
+    wifiFixSpeed: "WiFi Fix Speed",
+    codingPassion: "Coding & App Passion",
+    gadgetCollection: "Gadget Collection"
   };
   return map[camelStr] || camelStr;
 }
@@ -279,6 +284,7 @@ window.playCousinVoice = function(cousinId) {
     else if (cousinId === "devansh") window.soundFx.boing();
     else if (cousinId === "virat") window.soundFx.slideWhistle();
     else if (cousinId === "ninad") window.soundFx.fart();
+    else if (cousinId === "mayur") window.soundFx.techBeep();
   }
 
   // 2. Animate quote box
@@ -294,7 +300,7 @@ window.playCousinVoice = function(cousinId) {
     setTimeout(() => {
       window.speechSynthesis.cancel();
       const utt = new SpeechSynthesisUtterance(`${cousin.name} says: ${cousin.quote}`);
-      utt.pitch = cousin.gender === "F" ? 1.4 : 1.25;
+      utt.pitch = cousin.gender === "F" ? 1.4 : (cousinId === "mayur" ? 1.05 : 1.25);
       utt.rate = 1.02;
       window.speechSynthesis.speak(utt);
     }, 250);

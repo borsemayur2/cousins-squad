@@ -351,6 +351,34 @@ const JOKES_DATABASE = [
     setup: "Who broke the flower pot in the hallway?",
     punchline: "All 5 cousins simultaneously pointed at the family goldfish! 🐠🏺😂",
     emoji: "🐟"
+  },
+  {
+    id: 51,
+    category: "Tech & Science",
+    setup: "How do the cousins summon Mayur Mama from across the house in 2 seconds?",
+    punchline: "Whisper: 'The WiFi router has a blinking red light!' 🚨📶💨",
+    emoji: "💻"
+  },
+  {
+    id: 52,
+    category: "Cousin Chaos",
+    setup: "Why did Mayur Mama build this entire website for the cousins?",
+    punchline: "Because explaining 'The Cloud' using couch cushions was getting too difficult! ☁️🛋️😂",
+    emoji: "👨‍💻"
+  },
+  {
+    id: 53,
+    category: "Tech & Science",
+    setup: "Why did Mayur Mama tell the kids to go outside and touch grass?",
+    punchline: "Because he found a brand new 4K 120FPS ultra-realistic lawn simulator app! 🌿📱🎮",
+    emoji: "🌱"
+  },
+  {
+    id: 54,
+    category: "Tech & Science",
+    setup: "What is Mayur Mama's official diagnosis for every tablet problem?",
+    punchline: "'Have you tried turning it off, waiting 10 seconds, and giving your Mama a cookie?' 🍪🔄💻",
+    emoji: "🔌"
   }
 ];
 
