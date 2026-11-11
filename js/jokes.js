@@ -379,6 +379,76 @@ const JOKES_DATABASE = [
     setup: "What is Mayur Mama's official diagnosis for every tablet problem?",
     punchline: "'Have you tried turning it off, waiting 10 seconds, and giving your Mama a cookie?' 🍪🔄💻",
     emoji: "🔌"
+  },
+  {
+    id: 55,
+    category: "Cousin Chaos",
+    setup: "Why did Devansh refuse to bite an apple after his badminton match?",
+    punchline: "Because his right-middle tooth warned him: 'One more crunch and I am parachuting out!' 🏸🦷🍎",
+    emoji: "🦷"
+  },
+  {
+    id: 56,
+    category: "Sports & Speed",
+    setup: "What is Devansh's secret weapon during football penalty shootouts?",
+    punchline: "He wiggles his hanging front tooth until the goalkeeper screams and covers his eyes! ⚽🦷🥅",
+    emoji: "⚽"
+  },
+  {
+    id: 57,
+    category: "Food Fun",
+    setup: "How many spicy panipuris can Tapasya eat in one sitting?",
+    punchline: "All of them! Plus she claims the leftover spicy pani as vocal medicine for her popstar voice! 🥣🎤😋",
+    emoji: "🥣"
+  },
+  {
+    id: 58,
+    category: "Music & Drama",
+    setup: "Why did Tapasya sing a dramatic ballad to the panipuri wala?",
+    punchline: "Because getting an extra crispy puri requires top-tier theatrical emotion! 🎭🥣✨",
+    emoji: "🎤"
+  },
+  {
+    id: "59",
+    category: "Cousin Chaos",
+    setup: "Why has Ninad been horizontally bonded with the living room sofa for 6 hours?",
+    punchline: "He said moving off the couch would cause severe Free Fire ping spikes! 🛋️🎮📱",
+    emoji: "🛋️"
+  },
+  {
+    id: 60,
+    category: "Food Fun",
+    setup: "What is Ninad's favorite Olympic sport?",
+    punchline: "Competitive Couch Potato Snack Inhaling while clutching a gaming tablet! 🍕🛋️🥇",
+    emoji: "🍕"
+  },
+  {
+    id: 61,
+    category: "Sports & Speed",
+    setup: "Why does Virat polish his cool specs before hitting a sixer?",
+    punchline: "To clearly watch the ball sail over the sofa and into Mama's laundry basket! 👓🏏🧺",
+    emoji: "🏏"
+  },
+  {
+    id: 62,
+    category: "Sports & Speed",
+    setup: "How fast can Virat run between the cricket wickets?",
+    punchline: "So fast that his cool glasses arrive at the crease 2 seconds after he does! ⚡👓💨",
+    emoji: "⚡"
+  },
+  {
+    id: 63,
+    category: "Cousin Chaos",
+    setup: "Why does eldest boss Aaditi have her travel suitcase packed 6 months in advance?",
+    punchline: "Because a world tour of bossing around cousins requires serious logistical planning! ✈️🧳👑",
+    emoji: "✈️"
+  },
+  {
+    id: 64,
+    category: "Tech & Science",
+    setup: "Why does Mayur Mama wear high-tech specs when traveling across the world?",
+    punchline: "To code web apps, spot airport espresso bars, and fix cousin WiFi from 35,000 feet! 💻👓✈️",
+    emoji: "💻"
   }
 ];
 

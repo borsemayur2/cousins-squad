@@ -355,10 +355,23 @@ function renderCousinsSquad() {
 
         <h3 class="cousin-name" style="color: ${cousin.themeColor}">${cousin.name}</h3>
         <p class="cousin-role">${cousin.role}</p>
+
+        <!-- Birthday Badge Pill -->
+        <div class="cousin-bday-badge">🎂 Birthday: <strong>${cousin.bdayStr}</strong></div>
+        <p class="cousin-tagline">${cousin.tagline}</p>
+
         <div class="cousin-quote" id="quote-${cousin.id}">${cousin.quote}</div>
       </div>
 
       <div class="card-body">
+        <!-- Passions / Loves Box -->
+        <div class="cousin-loves-box">
+          <div class="loves-title">❤️ Signature Passions & Vibe:</div>
+          <div class="loves-pill-row">
+            ${(cousin.loves || []).map(l => `<span class="loves-pill">${l}</span>`).join("")}
+          </div>
+        </div>
+
         <div class="feature-box">
           <div class="feature-label">⚡ Superpower</div>
           <div class="feature-value">${cousin.superpower}</div>
@@ -413,17 +426,33 @@ function formatStatName(camelStr) {
     remoteControl: "TV Remote Ownership",
     snackTaxRate: "Snack Tax Rate",
     patienceForChaos: "Patience For Chaos",
-    dramaLevel: "Dramatic Flair",
-    singingVolume: "Singing Volume",
-    mirrorTime: "Mirror Practice",
+    travelWanderlust: "Travel Wanderlust ✈️",
+    patienceForYoungerCousins: "Patience For Cousins",
+    panipuriCapacity: "Panipuri Capacity 🥣",
+    dramaDecibels: "Drama Decibels 🎭",
+    singingVolume: "Singing Volume 🎤",
     cleanupSpeed: "Cleanup Speed",
+    athleticEnergy: "Athletic Energy ⚡",
+    footballSkills: "Football Skills ⚽",
+    toothWobbleAngle: "Tooth Wobble Angle 🦷",
+    fearOfApples: "Fear Of Hard Apples 🍏",
+    cricketPassion: "Cricket Passion 🏏",
+    specsCoolness: "Specs Coolness 👓",
+    runningSpeed: "Zoomie Speed ⚡",
+    sittingStillMinutes: "Sitting Still Time",
+    freeFireKills: "Free Fire Skills 🔥",
+    sofaAdhesion: "Sofa Stickiness 🛋️",
+    appetiteForSnacks: "Snack Appetite 🍕",
+    desireToWalk: "Desire To Walk",
+    codingProwess: "Software & Coding 💻",
+    specsStyle: "Tech Specs Style 👓",
+    travelMiles: "Travel Miles ✈️",
+    wifiPatience: "WiFi Patience 📶",
     inventionsMade: "Inventions Built",
     thingsAccidentallyDismantled: "Things Dismantled",
     curiosityLevel: "Curiosity",
     decibelLevel: "Decibel Level",
-    runningSpeed: "Zoomie Speed",
     windowNearMisses: "Window Near Misses",
-    cricketPassion: "Cricket Passion",
     sittingStillTime: "Sitting Still Time",
     stealthLevel: "Stealth Ninja Level",
     cookieHeists: "Cookie Heists",

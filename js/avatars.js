@@ -77,6 +77,15 @@ const AVATAR_SVGS = {
           <path d="M135 25 L138 33 L146 36 L138 39 L135 47 L132 39 L124 36 L132 33 Z" fill="#FFF" opacity="0.8" />
         </g>
       `}
+      <!-- Aaditi Loves Travelling: Jet & Passport -->
+      <g class="animated-float" transform="translate(142, 38)">
+        <text x="0" y="0" font-size="20">✈️</text>
+      </g>
+      <g transform="translate(25, 120) rotate(-12)">
+        <rect x="0" y="0" width="22" height="18" rx="3" fill="#880E4F" stroke="#AD1457" stroke-width="1.5" />
+        <rect x="4" y="4" width="14" height="4" fill="#FFD700" />
+        <text x="11" y="15" font-size="7" font-weight="bold" fill="#FFF" text-anchor="middle">PASSPORT</text>
+      </g>
       ${customAccessory ? renderCustomAccessory(customAccessory) : ''}
     </svg>
   `,
@@ -128,10 +137,17 @@ const AVATAR_SVGS = {
       <ellipse cx="100" cy="114" rx="7" ry="6" fill="#FF80AB" />
 
       <!-- Popstar Microphone -->
-      <g transform="translate(135, 110) rotate(-20)">
-        <rect x="0" y="15" width="8" height="28" rx="2" fill="#424242" />
-        <circle cx="4" cy="10" r="10" fill="#E0E0E0" stroke="#757575" stroke-width="1.5" />
-        <line x1="-3" y1="10" x2="11" y2="10" stroke="#757575" stroke-width="1" />
+      <g transform="translate(136, 110) rotate(-20)">
+        <rect x="0" y="15" width="7" height="26" rx="2" fill="#424242" />
+        <circle cx="3.5" cy="10" r="9" fill="#E0E0E0" stroke="#757575" stroke-width="1.5" />
+      </g>
+
+      <!-- Tapasya Loves Panipuri! Golden Puri with spicy mint splash -->
+      <g transform="translate(24, 115)">
+        <ellipse cx="16" cy="20" rx="18" ry="7" fill="#B0BEC5" stroke="#78909C" stroke-width="1.5" />
+        <circle cx="16" cy="13" r="11" fill="#FFA726" stroke="#E65100" stroke-width="1.5" />
+        <circle cx="16" cy="9" r="4.5" fill="#43A047" />
+        <text x="28" y="8" font-size="10">🥣</text>
       </g>
 
       <!-- Floating Musical Notes -->
@@ -163,19 +179,20 @@ const AVATAR_SVGS = {
       <!-- Background Circle -->
       <circle cx="100" cy="100" r="95" fill="url(#bg-devansh)" stroke="#F57C00" stroke-width="5" />
 
-      <!-- Spiky Wild Hair -->
+      <!-- Spiky Wild Athletic Hair -->
       <path d="M55 70 L45 45 L70 55 L85 30 L105 50 L125 32 L135 55 L155 45 L145 75 Z" fill="#3E2723" />
 
-      <!-- Body / Orange Inventor Hoodie -->
+      <!-- Body / Orange Sports Hoodie -->
       <path d="M45 185 C45 145, 68 135, 100 135 C132 135, 155 145, 155 185 Z" fill="#FB8C00" />
-      <circle cx="100" cy="162" r="10" fill="#FFF" />
-      <rect x="94" y="156" width="12" height="12" fill="#E65100" />
+      <circle cx="100" cy="162" r="12" fill="#FFF" />
+      <!-- Sports Shuttlecock Logo -->
+      <text x="100" y="166" font-size="11" text-anchor="middle">🏸</text>
 
       <!-- Head & Neck -->
       <rect x="91" y="115" width="18" height="25" rx="5" fill="#FCD8B8" />
       <ellipse cx="100" cy="92" rx="41" ry="44" fill="#FCD8B8" />
 
-      <!-- Band-aid on cheek -->
+      <!-- Band-aid on cheek (Athlete battle scar) -->
       <rect x="68" y="98" width="16" height="7" rx="2" fill="#D7CCC8" transform="rotate(15, 68, 98)" />
       <circle cx="75" cy="100" r="1.5" fill="#A1887F" />
 
@@ -183,9 +200,8 @@ const AVATAR_SVGS = {
       <circle cx="57" cy="93" r="9" fill="#FCD8B8" />
       <circle cx="143" cy="93" r="9" fill="#FCD8B8" />
       <path d="M60 80 C60 48, 140 48, 140 80 C125 65, 110 65, 95 62 C85 62, 72 68, 60 80 Z" fill="#3E2723" />
-      <path d="M98 35 Q105 18 115 25 Q106 30 102 38 Z" fill="#3E2723" />
 
-      <!-- Goofy Excited Eyes -->
+      <!-- Goofy Excited Athletic Eyes -->
       <ellipse cx="80" cy="85" rx="7" ry="8" fill="#FFFFFF" />
       <circle cx="82" cy="85" r="4.5" fill="#1B5E20" />
       <circle cx="84" cy="83" r="2" fill="#FFFFFF" />
@@ -193,28 +209,44 @@ const AVATAR_SVGS = {
       <circle cx="118" cy="85" r="4.5" fill="#1B5E20" />
       <circle cx="120" cy="83" r="2" fill="#FFFFFF" />
 
-      <!-- Big Toothy Goofy Grin -->
-      <path d="M78 105 Q100 125 122 105 Z" fill="#B71C1C" />
-      <rect x="86" y="105" width="28" height="6" rx="2" fill="#FFFFFF" />
+      <!-- Big Toothy Goofy Grin with 1 RIGHT-MIDDLE TOOTH HANGING LOOSE! -->
+      <path d="M76 104 Q100 126 124 104 Z" fill="#B71C1C" />
+      <!-- Solid left teeth -->
+      <rect x="83" y="104" width="7" height="6" rx="1" fill="#FFFFFF" />
+      <rect x="91" y="104" width="7" height="6" rx="1" fill="#FFFFFF" />
+      
+      <!-- THE FAMOUS RIGHT MIDDLE TOOTH: Dangler hanging by a thread! -->
+      <g transform="translate(101, 105) rotate(26)">
+        <rect x="0" y="0" width="7" height="9" rx="1.5" fill="#FFFDE7" stroke="#FFB300" stroke-width="1" />
+        <!-- tiny gum thread -->
+        <line x1="0" y1="0" x2="-2" y2="-3" stroke="#E53935" stroke-width="1.2" />
+      </g>
+      <!-- Far right tooth -->
+      <rect x="111" y="104" width="6" height="5" rx="1" fill="#FFFFFF" />
 
-      <!-- Yellow Safety Goggles -->
+      <!-- Badminton Racket in Hand -->
+      <g transform="translate(142, 65) rotate(25)">
+        <ellipse cx="10" cy="10" rx="11" ry="15" fill="none" stroke="#2979FF" stroke-width="2.5" />
+        <line x1="4" y1="10" x2="16" y2="10" stroke="#90CAF9" stroke-width="1" />
+        <line x1="10" y1="2" x2="10" y2="18" stroke="#90CAF9" stroke-width="1" />
+        <rect x="9" y="24" width="3" height="36" fill="#424242" />
+      </g>
+
+      <!-- Mini Football on Left -->
+      <g transform="translate(24, 118)">
+        <circle cx="14" cy="14" r="14" fill="#FFFFFF" stroke="#212121" stroke-width="2" />
+        <polygon points="14,6 19,10 17,16 11,16 9,10" fill="#212121" />
+        <line x1="14" y1="6" x2="14" y2="0" stroke="#212121" stroke-width="1.2" />
+        <line x1="19" y1="10" x2="26" y2="8" stroke="#212121" stroke-width="1.2" />
+      </g>
+
+      <!-- Sports Sweatband -->
       ${customHat ? renderCustomHat(customHat) : `
-        <g transform="translate(62, 45)">
-          <path d="M-10 15 L85 15" stroke="#212121" stroke-width="4" />
-          <circle cx="20" cy="14" r="15" fill="#81D4FA" stroke="#FFD600" stroke-width="5" opacity="0.9" />
-          <circle cx="55" cy="14" r="15" fill="#81D4FA" stroke="#FFD600" stroke-width="5" opacity="0.9" />
-          <rect x="33" y="11" width="10" height="5" fill="#FFD600" />
-          <line x1="14" y1="8" x2="22" y2="18" stroke="#FFF" stroke-width="2" />
-          <line x1="49" y1="8" x2="57" y2="18" stroke="#FFF" stroke-width="2" />
+        <g>
+          <rect x="56" y="60" width="88" height="12" rx="3" fill="#D50000" />
+          <line x1="56" y1="66" x2="144" y2="66" stroke="#FFF" stroke-width="2" />
         </g>
       `}
-
-      <!-- LEGO Brick Floating -->
-      <g class="animated-float" transform="translate(145, 120)">
-        <rect x="0" y="0" width="22" height="14" rx="2" fill="#F44336" stroke="#B71C1C" stroke-width="1.5" />
-        <rect x="3" y="-4" width="6" height="4" fill="#F44336" />
-        <rect x="13" y="-4" width="6" height="4" fill="#F44336" />
-      </g>
       ${customAccessory ? renderCustomAccessory(customAccessory) : ''}
     </svg>
   `,
@@ -249,21 +281,45 @@ const AVATAR_SVGS = {
       <circle cx="58" cy="94" r="9" fill="#FCD8B8" />
       <circle cx="142" cy="94" r="9" fill="#FCD8B8" />
 
-      <!-- Left Eye & Turbo Confident Wink -->
+      <!-- Eyes Behind Specs -->
       <ellipse cx="80" cy="86" rx="6" ry="8" fill="#FFFFFF" />
       <circle cx="82" cy="86" r="4.5" fill="#212121" />
       <circle cx="84" cy="84" r="1.5" fill="#FFFFFF" />
-      <path d="M112 86 Q120 78 128 86" stroke="#212121" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <ellipse cx="120" cy="86" rx="6" ry="8" fill="#FFFFFF" />
+      <circle cx="118" cy="86" r="4.5" fill="#212121" />
+      <circle cx="120" cy="84" r="1.5" fill="#FFFFFF" />
+
+      <!-- VIRAT'S COOL SIGNATURE SPECS! -->
+      <g>
+        <!-- Left Frame -->
+        <rect x="66" y="74" width="30" height="22" rx="6" fill="#E1F5FE" fill-opacity="0.45" stroke="#01579B" stroke-width="3.5" />
+        <!-- Right Frame -->
+        <rect x="104" y="74" width="30" height="22" rx="6" fill="#E1F5FE" fill-opacity="0.45" stroke="#01579B" stroke-width="3.5" />
+        <!-- Bridge -->
+        <path d="M96 85 L104 85" stroke="#01579B" stroke-width="3.5" />
+        <!-- Ear Temples -->
+        <path d="M66 84 L56 82" stroke="#01579B" stroke-width="3" />
+        <path d="M134 84 L144 82" stroke="#01579B" stroke-width="3" />
+        <!-- Shiny Glint on Glasses -->
+        <line x1="71" y1="78" x2="79" y2="90" stroke="#FFF" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="109" y1="78" x2="117" y2="90" stroke="#FFF" stroke-width="2.5" stroke-linecap="round" />
+      </g>
 
       <!-- Champion Grin -->
-      <path d="M84 106 Q100 120 118 106" stroke="#D32F2F" stroke-width="3.5" stroke-linecap="round" fill="none" />
-      <path d="M96 112 Q100 118 104 112 Z" fill="#FF5252" />
+      <path d="M84 108 Q100 122 118 108" stroke="#D32F2F" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <path d="M96 114 Q100 120 104 114 Z" fill="#FF5252" />
 
       <!-- Mini Cricket Bat -->
       <g transform="translate(142, 75) rotate(25)">
         <rect x="8" y="0" width="6" height="22" rx="2" fill="#E53935" />
         <path d="M5 22 L17 22 L15 70 L7 70 Z" fill="#D7CCC8" stroke="#8D6E63" stroke-width="1.5" />
         <line x1="11" y1="25" x2="11" y2="65" stroke="#A1887F" stroke-width="1" />
+      </g>
+
+      <!-- Red Cricket Leather Ball Floating -->
+      <g class="animated-float" transform="translate(24, 115)">
+        <circle cx="12" cy="12" r="12" fill="#C62828" stroke="#8E0000" stroke-width="1.5" />
+        <path d="M4 12 Q12 16 20 12" stroke="#FFF" stroke-width="1.5" stroke-dasharray="2,2" fill="none" />
       </g>
 
       <!-- Sporty Cap Backwards -->
@@ -289,49 +345,47 @@ const AVATAR_SVGS = {
       <!-- Background Circle -->
       <circle cx="100" cy="100" r="95" fill="url(#bg-ninad)" stroke="#2E7D32" stroke-width="5" />
 
-      <!-- Body / Green Dinosaur Hoodie -->
+      <!-- Body / Green Couch-Potato Hoodie -->
       <path d="M48 185 C48 145, 70 135, 100 135 C130 135, 152 145, 152 185 Z" fill="#43A047" />
       <polygon points="100,135 94,124 100,126 106,124" fill="#FFEB3B" />
-      <circle cx="100" cy="162" r="8" fill="#FFD54F" />
-      <circle cx="98" cy="160" r="1.5" fill="#5D4037" />
-      <circle cx="102" cy="163" r="1.5" fill="#5D4037" />
-
+      
       <!-- Head & Neck -->
       <rect x="91" y="115" width="18" height="25" rx="5" fill="#FCD8B8" />
       <ellipse cx="100" cy="94" rx="42" ry="42" fill="#FCD8B8" />
 
-      <!-- Chubby Cheeks & Cookie Crumbs -->
+      <!-- Chubby Cheeks & Snack Crumbs -->
       <circle cx="68" cy="102" r="10" fill="#FF8A80" opacity="0.7" />
       <circle cx="132" cy="102" r="10" fill="#FF8A80" opacity="0.7" />
       <circle cx="126" cy="108" r="2" fill="#6D4C41" />
       <circle cx="133" cy="112" r="1.5" fill="#6D4C41" />
-      <circle cx="122" cy="113" r="1" fill="#6D4C41" />
 
       <!-- Ears -->
       <circle cx="56" cy="95" r="9" fill="#FCD8B8" />
       <circle cx="144" cy="95" r="9" fill="#FCD8B8" />
 
-      <!-- Big Cute Puppy Eyes -->
-      <ellipse cx="80" cy="88" rx="8" ry="10" fill="#FFFFFF" />
-      <circle cx="81" cy="88" r="6" fill="#212121" />
-      <circle cx="83" cy="85" r="2.5" fill="#FFFFFF" />
-      <circle cx="79" cy="91" r="1.2" fill="#FFFFFF" />
+      <!-- Ninad: Arrogant Half-Closed Couch Eyes -->
+      <ellipse cx="80" cy="88" rx="8" ry="6.5" fill="#FFFFFF" />
+      <circle cx="81" cy="88" r="4.5" fill="#212121" />
+      <path d="M72 82 Q80 84 88 82" stroke="#1B5E20" stroke-width="2.5" />
+      <ellipse cx="120" cy="88" rx="8" ry="6.5" fill="#FFFFFF" />
+      <circle cx="119" cy="88" r="4.5" fill="#212121" />
+      <path d="M112 82 Q120 84 128 82" stroke="#1B5E20" stroke-width="2.5" />
 
-      <ellipse cx="120" cy="88" rx="8" ry="10" fill="#FFFFFF" />
-      <circle cx="119" cy="88" r="6" fill="#212121" />
-      <circle cx="121" cy="85" r="2.5" fill="#FFFFFF" />
-      <circle cx="117" cy="91" r="1.2" fill="#FFFFFF" />
+      <!-- Arrogant Lazy Smirk -->
+      <path d="M88 108 Q100 115 116 107" stroke="#2E7D32" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <path d="M115 107 Q119 104 116 111" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none" />
 
-      <!-- Cute Sneaky Smile -->
-      <path d="M88 110 Q100 120 114 110" stroke="#C2185B" stroke-width="3" stroke-linecap="round" fill="none" />
+      <!-- Ninad's Gaming Tablet with Free Fire Flames! -->
+      <g transform="translate(118, 100) rotate(12)">
+        <rect x="0" y="0" width="46" height="30" rx="4" fill="#212121" stroke="#FF5722" stroke-width="2" />
+        <rect x="3" y="3" width="40" height="24" rx="2" fill="#263238" />
+        <text x="23" y="19" font-size="13" text-anchor="middle">🔥🎮</text>
+      </g>
 
-      <!-- Chocolate Chip Cookie in Hand -->
-      <g transform="translate(42, 120)">
-        <circle cx="12" cy="12" r="14" fill="#D7CCC8" stroke="#8D6E63" stroke-width="1.5" />
-        <circle cx="23" cy="5" r="6" fill="#A5D6A7" />
-        <circle cx="7" cy="10" r="2" fill="#4E342E" />
-        <circle cx="14" cy="17" r="2.5" fill="#4E342E" />
-        <circle cx="8" cy="18" r="1.5" fill="#4E342E" />
+      <!-- Soft Green Sofa Cushion & Pizza Snack -->
+      <g transform="translate(20, 114)">
+        <rect x="0" y="0" width="36" height="26" rx="8" fill="#81C784" stroke="#388E3C" stroke-width="1.8" />
+        <text x="18" y="18" font-size="14" text-anchor="middle">🍕</text>
       </g>
 
       <!-- Red Ninja Headband -->
@@ -362,11 +416,12 @@ const AVATAR_SVGS = {
       <!-- Background Circle -->
       <circle cx="100" cy="100" r="95" fill="url(#bg-mayur)" stroke="#512DA8" stroke-width="5" />
 
-      <!-- Floating Tech Code & WiFi Signals -->
-      <g class="animated-float" opacity="0.8">
-        <text x="24" y="55" font-family="monospace" font-size="14" font-weight="bold" fill="#311B92">&lt;/&gt;</text>
-        <text x="145" y="50" font-family="monospace" font-size="16" font-weight="bold" fill="#00E5FF">📶</text>
-        <text x="28" y="115" font-family="monospace" font-size="11" font-weight="bold" fill="#7C4DFF">0101</text>
+      <!-- Floating Tech Code, WiFi Signals & Travel Globe -->
+      <g class="animated-float" opacity="0.85">
+        <text x="20" y="52" font-family="monospace" font-size="13" font-weight="bold" fill="#311B92">&lt;/&gt;</text>
+        <text x="148" y="48" font-size="16">✈️</text>
+        <text x="24" y="112" font-size="14">🌍</text>
+        <text x="150" y="80" font-family="monospace" font-size="12" fill="#00E5FF">📶</text>
       </g>
 
       <!-- Body / Navy Tech Hoodie -->
@@ -386,7 +441,6 @@ const AVATAR_SVGS = {
 
       <!-- Short Neat Tech Haircut -->
       <path d="M56 80 C54 44, 146 44, 144 80 C135 60, 115 54, 100 55 C85 54, 65 60, 56 80 Z" fill="#212121" />
-      <!-- Stylish side fade / texture -->
       <path d="M56 80 Q62 65 72 60 Q65 75 58 88 Z" fill="#212121" />
       <path d="M144 80 Q138 65 128 60 Q135 75 142 88 Z" fill="#212121" />
 
@@ -406,13 +460,13 @@ const AVATAR_SVGS = {
       <circle cx="117" cy="85" r="4.5" fill="#212121" />
       <circle cx="119" cy="83" r="1.5" fill="#FFFFFF" />
 
-      <!-- Modern Rectangular Tech Glasses -->
-      <rect x="68" y="75" width="28" height="20" rx="5" fill="none" stroke="#212121" stroke-width="3.5" />
-      <rect x="104" y="75" width="28" height="20" rx="5" fill="none" stroke="#212121" stroke-width="3.5" />
+      <!-- Modern Rectangular Tech Glasses / Specs -->
+      <rect x="68" y="75" width="28" height="20" rx="5" fill="#EDE7F6" fill-opacity="0.3" stroke="#212121" stroke-width="3.5" />
+      <rect x="104" y="75" width="28" height="20" rx="5" fill="#EDE7F6" fill-opacity="0.3" stroke="#212121" stroke-width="3.5" />
       <line x1="96" y1="84" x2="104" y2="84" stroke="#212121" stroke-width="3.5" />
       <!-- Subtle Blue Light Lens Glint -->
-      <line x1="72" y1="78" x2="80" y2="90" stroke="#80D8FF" stroke-width="1.5" opacity="0.6" />
-      <line x1="108" y1="78" x2="116" y2="90" stroke="#80D8FF" stroke-width="1.5" opacity="0.6" />
+      <line x1="72" y1="78" x2="80" y2="90" stroke="#80D8FF" stroke-width="1.8" opacity="0.8" />
+      <line x1="108" y1="78" x2="116" y2="90" stroke="#80D8FF" stroke-width="1.8" opacity="0.8" />
 
       <!-- Cheerful Smile -->
       <path d="M86 106 Q100 118 114 106" stroke="#D32F2F" stroke-width="3.5" stroke-linecap="round" fill="none" />
@@ -430,18 +484,14 @@ const AVATAR_SVGS = {
       <!-- Headgear (Default: Cool Wireless Developer Headset) -->
       ${customHat ? renderCustomHat(customHat) : `
         <g>
-          <!-- Headset Band -->
           <path d="M54 90 C50 35, 150 35, 146 90" stroke="#424242" stroke-width="4.5" fill="none" />
-          <!-- Left Ear Cushion -->
           <rect x="46" y="80" width="10" height="20" rx="4" fill="#00E5FF" stroke="#0097A7" stroke-width="1.5" />
-          <!-- Right Ear Cushion -->
           <rect x="144" y="80" width="10" height="20" rx="4" fill="#00E5FF" stroke="#0097A7" stroke-width="1.5" />
         </g>
       `}
       ${customAccessory ? renderCustomAccessory(customAccessory) : ''}
     </svg>
   `
-
 };
 
 // Silly Hats and Accessories

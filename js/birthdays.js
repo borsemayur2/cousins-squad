@@ -5,75 +5,74 @@ const DEFAULT_BIRTHDAYS = [
   {
     id: "devansh",
     name: "Devansh",
-    role: "The Mad Scientist",
-    icon: "🤖",
-    // Set near the current date (Nov 28) so the countdown is excitingly close!
-    month: 11, // November (1-indexed)
-    day: 28,
+    role: "Athlete & Loose-Tooth Legend",
+    icon: "🏸",
+    month: 7, // July
+    day: 18,
     birthYear: 2017,
     themeColor: "#FF9800",
-    sillyDemands: "A 50,000-piece LEGO fortress, laser safety goggles, and 12 battery packs.",
-    funQuote: "“Every birthday is just a software upgrade into a taller chaos machine!”"
+    sillyDemands: "A pro badminton racket, FIFA football, and soft ice cream because my right-middle tooth is hanging by a thread!",
+    funQuote: "“If my hanging front tooth survives until July 18th, the Tooth Fairy owes me 1,000 rupees!”"
   },
   {
     id: "virat",
     name: "Virat",
-    role: "Speed Demon",
-    icon: "⚡",
+    role: "Cricket King with Cool Specs",
+    icon: "🏏",
     month: 1, // January
-    day: 18,
+    day: 7,
     birthYear: 2019,
     themeColor: "#2196F3",
-    sillyDemands: "A golden cricket bat, Mach-5 sneakers, and an all-you-can-eat pizza stadium.",
-    funQuote: "“I promise to sit still on my birthday for exactly 1.5 seconds!”"
+    sillyDemands: "An MRF cricket bat, anti-glare sports specs with blue frames, and a turbo bowling machine for the hallway!",
+    funQuote: "“January 7th is National Virat Sixer Day! Adjust your specs and get ready to run!”"
   },
   {
     id: "ninad",
     name: "Ninad",
-    role: "Cookie Bandit",
-    icon: "🍪",
+    role: "Free Fire King & Sofa Potato",
+    icon: "🛋️",
     month: 3, // March
-    day: 14,
+    day: 25,
     birthYear: 2021,
     themeColor: "#4CAF50",
-    sillyDemands: "A chocolate chip cookie the size of a car wheel, and immunity from bedtime.",
-    funQuote: "“On my birthday, the invisible ghost dog is officially not allowed to eat my cake!”"
+    sillyDemands: "10,000 Free Fire diamonds, hot pizza delivered directly to my mouth on the couch, and a 15-meter tablet charger!",
+    funQuote: "“I will celebrate my birthday on March 25th 100% horizontally from the living room sofa without getting up!”"
   },
   {
     id: "tapasya",
     name: "Tapasya",
-    role: "Popstar Diva",
-    icon: "🎤",
-    month: 5, // May
-    day: 22,
+    role: "Panipuri Empress & Diva",
+    icon: "🥣",
+    month: 8, // August
+    day: 24,
     birthYear: 2016,
     themeColor: "#9C27B0",
-    sillyDemands: "A glittery diamond microphone, purple carpet entryway, and 5 encore songs.",
-    funQuote: "“My birthday cake must be greeted with a 15-minute standing ovation!”"
+    sillyDemands: "A commercial 4-tier Panipuri fountain with spicy teekha-meetha water, 100 puris, and a glitter microphone!",
+    funQuote: "“Every birthday candle extinguished is another round of spicy panipuris for the Diva!”"
   },
   {
     id: "aaditi",
     name: "Aaditi",
-    role: "The Eldest Boss",
-    icon: "👑",
-    month: 8, // August
-    day: 10,
+    role: "Supreme Boss & World Traveller",
+    icon: "✈️",
+    month: 9, // September
+    day: 2,
     birthYear: 2014,
     themeColor: "#FF4081",
-    sillyDemands: "First slice of all cakes, sovereign control over the TV remote, and complete peace.",
-    funQuote: "“I was born first, which means my birthday has historical seniority!”"
+    sillyDemands: "First-class flight tickets, a chic travel backpack, and legal authority to confiscate everyone else's tablets!",
+    funQuote: "“September 2nd is World Boss Day! All younger cousins must bow and present boarding passes!”"
   },
   {
     id: "mayur",
     name: "Mayur Mama",
-    role: "Chief Tech Wizard",
+    role: "Tech Wizard & Globetrotter",
     icon: "💻",
     month: 10, // October
-    day: 5,
+    day: 20,
     birthYear: 1995,
     themeColor: "#673AB7",
-    sillyDemands: "10 Gbps fiber internet, a mechanical keyboard with RGB lights, and hot coffee.",
-    funQuote: "“May your ping be low, your FPS be high, and your birthday cake bug-free!”"
+    sillyDemands: "Business class flight tickets to Tokyo, sleek titanium specs, zero latency WiFi, and dark roast coffee!",
+    funQuote: "“On October 20th, all family IT tickets require payment in travel vouchers and chocolate chip cookies!”"
   }
 ];
 
@@ -85,6 +84,13 @@ class BirthdayCannonManager {
   }
 
   loadMembers() {
+    const VERSION_KEY = "chaos_bday_ver_v3_authentic";
+    const currentVer = localStorage.getItem("chaos_bday_ver");
+    if (currentVer !== VERSION_KEY) {
+      localStorage.removeItem("chaos_cousins_birthdays");
+      localStorage.setItem("chaos_bday_ver", VERSION_KEY);
+    }
+
     const saved = localStorage.getItem("chaos_cousins_birthdays");
     if (saved) {
       try {

@@ -652,6 +652,64 @@ body {
   color: #263238;
 }
 
+.cousin-bday-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF;
+  border: 2px solid #1E293B;
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #C2185B;
+  box-shadow: 2px 2px 0px #1E293B;
+  margin: 6px auto 4px;
+}
+
+.cousin-tagline {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #546E7A;
+  margin: 4px 0 6px;
+  line-height: 1.35;
+}
+
+.cousin-loves-box {
+  background: #FFF8E1;
+  border: 2px solid #FFE082;
+  border-radius: var(--border-radius-sm);
+  padding: 10px 12px;
+}
+
+.loves-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #E65100;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loves-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.loves-pill {
+  background: #FFFFFF;
+  border: 1.5px solid #FFB300;
+  border-radius: 99px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #37474F;
+  box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
 .card-body {
   padding: 22px 20px;
   flex: 1;

@@ -165,12 +165,12 @@ const EXCUSE_ENGINE = {
   ],
 
   certifiers: [
-    { name: "👑 Aaditi", role: "Eldest Boss Supreme", seal: "COUSIN HIGH COURT: APPROVED" },
-    { name: "🍪 Ninad", role: "Cookie Bandit & Chief Alibi", seal: "100% INNOCENT (WAS EATING COOKIES)" },
-    { name: "🤖 Devansh", role: "Chief Chaos Engineer", seal: "SCIENTIFICALLY VERIFIED BY LEGO LAB" },
-    { name: "⚡ Virat", role: "Mach-3 Sprint Champion", seal: "SPEED CHECKED: TOO FAST TO BE GUILTY" },
-    { name: "🎤 Tapasya", role: "Dramatic Arts Empress", seal: "OFFICIALLY OSCAR-WORTHY PERFORMANCE" },
-    { name: "💻 Mayur Mama", role: "WiFi Overlord & Family CTO", seal: "SYSTEM STATUS: REBOOTED & EXCUSED" }
+    { name: "👑 Aaditi", role: "Supreme Boss & World Traveller", seal: "COUSIN HIGH COURT: APPROVED" },
+    { name: "🛋️ Ninad", role: "Free Fire Pro & Sofa Potato", seal: "100% INNOCENT (WAS HORIZONTAL ON SOFA)" },
+    { name: "🦷 Devansh", role: "Athlete & Loose-Tooth Legend", seal: "VERIFIED: TOOTH SURVIVED THE INCIDENT" },
+    { name: "👓 Virat", role: "Cricket Pro with Cool Specs", seal: "SPEED CHECKED: RETRIEVING SIXER" },
+    { name: "🥣 Tapasya", role: "Panipuri Empress & Diva", seal: "OFFICIALLY EXCUSED OVER PANIPURI" },
+    { name: "💻 Mayur Mama", role: "Software Wizard & Travel Pro", seal: "SYSTEM STATUS: REBOOTED & EXCUSED" }
   ],
 
   believabilityScores: [
