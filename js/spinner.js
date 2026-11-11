@@ -2,7 +2,7 @@
 
 const SCENARIOS = [
   {
-    question: "Who is most likely to eat the frosting off all the cupcakes and put them back?",
+    question: "Who is most likely to eat the frosting off all the cupcakes and blame the family dog?",
     cousinId: "ninad",
     reason: "Because Ninad believes frosting is a public service and cupcake bottoms are optional! 🧁🕵️‍♂️"
   },
@@ -68,6 +68,24 @@ class CousinSpinner {
     this.container = document.getElementById(containerId);
     this.isSpinning = false;
     this.currentScenarioIndex = 0;
+    this.initDefault();
+  }
+
+  initDefault() {
+    const questionEl = document.getElementById("spinner-question");
+    const resultAvatarEl = document.getElementById("spinner-avatar");
+    const resultNameEl = document.getElementById("spinner-name");
+    const resultReasonEl = document.getElementById("spinner-reason");
+
+    const scenario = SCENARIOS[0];
+    const cousin = getCousinById ? getCousinById(scenario.cousinId) : null;
+
+    if (questionEl) questionEl.innerText = `"${scenario.question}"`;
+    if (resultNameEl && cousin) resultNameEl.innerText = `🎯 IT'S ${cousin.name.toUpperCase()}!`;
+    if (resultReasonEl) resultReasonEl.innerText = scenario.reason;
+    if (resultAvatarEl && window.renderCousinAvatar && cousin) {
+      resultAvatarEl.innerHTML = window.renderCousinAvatar(cousin.id);
+    }
   }
 
   spin() {
@@ -88,6 +106,7 @@ class CousinSpinner {
     if (spinBtn) {
       spinBtn.disabled = true;
       spinBtn.classList.add("spinning-btn");
+      spinBtn.innerText = "🌀 SPINNING...";
     }
 
     // Pick next scenario (randomized)
@@ -97,33 +116,41 @@ class CousinSpinner {
 
     // Drumroll / flicker effect
     let counter = 0;
-    const cousinNames = ["Aaditi", "Tapasya", "Devansh", "Virat", "Ninad"];
+    const cousinIds = ["aaditi", "tapasya", "devansh", "virat", "ninad"];
     
     const interval = setInterval(() => {
       counter++;
-      const randomName = cousinNames[Math.floor(Math.random() * cousinNames.length)];
-      if (resultNameEl) resultNameEl.innerText = `🎲 Drumroll... ${randomName}?`;
+      const randomCousinId = cousinIds[Math.floor(Math.random() * cousinIds.length)];
+      const randomCousin = getCousinById(randomCousinId);
+
+      if (resultNameEl && randomCousin) {
+        resultNameEl.innerText = `🎲 Drumroll... ${randomCousin.name}?`;
+      }
+      if (resultAvatarEl && randomCousin && window.renderCousinAvatar) {
+        resultAvatarEl.innerHTML = window.renderCousinAvatar(randomCousin.id);
+      }
       if (window.soundFx && counter % 2 === 0) window.soundFx.pop();
 
-      if (counter > 12) {
+      if (counter > 14) {
         clearInterval(interval);
         this.isSpinning = false;
 
         if (spinBtn) {
           spinBtn.disabled = false;
           spinBtn.classList.remove("spinning-btn");
+          spinBtn.innerText = "🎲 SPIN AGAIN!";
         }
 
         // Show final result
         if (questionEl) questionEl.innerText = `"${scenario.question}"`;
-        if (resultNameEl) resultNameEl.innerText = `🎯 IT'S ${cousin.name.toUpperCase()}!`;
+        if (resultNameEl && cousin) resultNameEl.innerText = `🎯 IT'S ${cousin.name.toUpperCase()}!`;
         if (resultReasonEl) resultReasonEl.innerText = scenario.reason;
         
-        if (resultAvatarEl) {
+        if (resultAvatarEl && cousin && window.renderCousinAvatar) {
           resultAvatarEl.innerHTML = window.renderCousinAvatar(cousin.id);
         }
 
-        if (resultCardEl) {
+        if (resultCardEl && cousin) {
           resultCardEl.style.borderColor = cousin.themeColor;
           resultCardEl.classList.remove("pop-in");
           void resultCardEl.offsetWidth; // trigger reflow
@@ -135,7 +162,7 @@ class CousinSpinner {
           window.soundFx.tada();
         }
         if (window.triggerConfetti) {
-          window.triggerConfetti();
+          window.triggerConfetti(90);
         }
       }
     }, 110);

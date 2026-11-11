@@ -1127,3 +1127,46 @@ body {
   .punchline-text { font-size: 1.15rem; }
   .cousin-card { margin: 0 4px; }
 }
+
+/* Sound Pad Active Press Feedback */
+.sound-pad-btn.sound-active {
+  transform: scale(0.92) translateY(2px) !important;
+  background: #FFF59D !important;
+  box-shadow: 1px 1px 0px #1E293B !important;
+}
+
+/* Reading Active State */
+.reading-active {
+  animation: pulseSpin 0.6s infinite alternate;
+  background: #E0F2FE !important;
+  border-color: #0288D1 !important;
+}
+
+/* Kid Toast Notification */
+.kid-toast-banner {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: #FFF9C4;
+  color: #1E293B;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 14px 28px;
+  border: 4px solid #1E293B;
+  border-radius: 99px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 4px 6px 0px #1E293B;
+  z-index: 100000;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+  text-align: center;
+  max-width: 90vw;
+}
+
+.kid-toast-banner.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+

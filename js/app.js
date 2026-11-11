@@ -1,7 +1,7 @@
 // Main Application Controller for Cousins Funhouse!
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize State
+  // Application State
   let currentJoke = null;
   let isPunchlineVisible = false;
   let activeJokeCategory = "All";
@@ -10,7 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let dressupAccessory = null;
   let laughCount = 42;
   let tomatoCount = 3;
-  let avatarViewMode = "svg"; // 'svg' or 'image'
+  let avatarViewMode = "3d"; // Default to generated 3D Pixar avatars!
+  let availableVoices = [];
+
+  // Pre-load speech synthesis voices
+  if ('speechSynthesis' in window) {
+    const loadVoices = () => {
+      availableVoices = window.speechSynthesis.getVoices();
+    };
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
 
   // Initialize Canvas Confetti
   initConfetti();
@@ -25,19 +35,34 @@ document.addEventListener("DOMContentLoaded", () => {
   setupDressupLab();
 
   // Initialize Spinner Game
-  const spinner = new CousinSpinner("spinner-container");
-  const spinBtn = document.getElementById("spinner-btn");
-  if (spinBtn) {
-    spinBtn.addEventListener("click", () => spinner.spin());
+  let spinner = null;
+  if (typeof CousinSpinner !== "undefined") {
+    spinner = new CousinSpinner("spinner-container");
+    const spinBtn = document.getElementById("spinner-btn");
+    if (spinBtn) {
+      spinBtn.addEventListener("click", () => spinner.spin());
+    }
   }
 
   // Setup Event Listeners
   setupEventListeners();
 
-  // Welcome sound on first user interaction
-  document.body.addEventListener("click", () => {
+  // Global AudioContext unlocking on first interaction
+  const unlockAudio = () => {
     if (window.soundFx) window.soundFx.init();
-  }, { once: true });
+    window.removeEventListener("pointerdown", unlockAudio);
+    window.removeEventListener("touchstart", unlockAudio);
+    window.removeEventListener("click", unlockAudio);
+  };
+  window.addEventListener("pointerdown", unlockAudio, { passive: true });
+  window.addEventListener("touchstart", unlockAudio, { passive: true });
+  window.addEventListener("click", unlockAudio, { passive: true });
+
+  // Expose global helpers
+  window.appState = {
+    getMode: () => avatarViewMode,
+    setMode: (m) => { avatarViewMode = m; renderCousinsSquad(); }
+  };
 });
 
 // ========================================================
@@ -53,10 +78,12 @@ function loadRandomJoke() {
   const punchlineBoxEl = document.getElementById("punchline-box");
   const jokeCategoryEl = document.getElementById("joke-category-badge");
   const jokeEmojiEl = document.getElementById("joke-emoji");
+  const voiceBtn = document.getElementById("voice-joke-btn");
 
   if (jokeSetupEl) jokeSetupEl.innerText = currentJoke.setup;
   if (jokeCategoryEl) jokeCategoryEl.innerText = currentJoke.category;
   if (jokeEmojiEl) jokeEmojiEl.innerText = currentJoke.emoji;
+  if (voiceBtn) voiceBtn.innerText = "🗣️ Read Aloud";
 
   if (punchlineBoxEl) {
     punchlineBoxEl.innerHTML = `
@@ -94,8 +121,11 @@ function revealPunchline() {
 
 // Speak Joke aloud with Cartoon voice via SpeechSynthesis
 function speakJoke() {
-  if (!('speechSynthesis' in window) || !currentJoke) {
-    alert("Speech is not supported in this browser!");
+  if (!currentJoke) return;
+  const voiceBtn = document.getElementById("voice-joke-btn");
+
+  if (!('speechSynthesis' in window)) {
+    showToast("⚠️ Speech is not supported in this browser, but the jokes are still hilarious!");
     return;
   }
 
@@ -107,12 +137,33 @@ function speakJoke() {
     : currentJoke.setup;
 
   const utterance = new SpeechSynthesisUtterance(textToSpeak);
-  utterance.pitch = 1.45; // Silly cartoon high pitch
-  utterance.rate = 1.05;
+  utterance.pitch = 1.35; // Fun high pitch
+  utterance.rate = 1.0;
 
   const voices = window.speechSynthesis.getVoices();
-  const funVoice = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Junior") || v.name.includes("Child") || v.name.includes("Samantha") || v.name.includes("Victoria")));
-  if (funVoice) utterance.voice = funVoice;
+  if (voices && voices.length > 0) {
+    const funVoice = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Junior") || v.name.includes("Child") || v.name.includes("Samantha") || v.name.includes("Victoria") || v.name.includes("Google")));
+    if (funVoice) utterance.voice = funVoice;
+  }
+
+  if (voiceBtn) {
+    voiceBtn.innerText = "🔊 Reading...";
+    voiceBtn.classList.add("reading-active");
+  }
+
+  utterance.onend = () => {
+    if (voiceBtn) {
+      voiceBtn.innerText = "🗣️ Read Aloud";
+      voiceBtn.classList.remove("reading-active");
+    }
+  };
+
+  utterance.onerror = () => {
+    if (voiceBtn) {
+      voiceBtn.innerText = "🗣️ Read Aloud";
+      voiceBtn.classList.remove("reading-active");
+    }
+  };
 
   window.speechSynthesis.speak(utterance);
 }
@@ -124,6 +175,8 @@ function renderCousinsSquad() {
   const gridEl = document.getElementById("cousins-grid");
   if (!gridEl || typeof COUSINS_DATA === "undefined") return;
 
+  const mode = window.appState ? window.appState.getMode() : "3d";
+
   gridEl.innerHTML = COUSINS_DATA.map(cousin => `
     <div class="cousin-card" id="card-${cousin.id}" style="border-top: 8px solid ${cousin.themeColor}">
       <div class="card-header-banner" style="background: ${cousin.bgColor}">
@@ -131,12 +184,12 @@ function renderCousinsSquad() {
         <div class="card-rank-badge">${cousin.ageRank}</div>
         
         <div class="avatar-wrapper" onclick="playCousinVoice('${cousin.id}')" title="Click for ${cousin.name}'s sound!">
-          ${window.renderCousinCardAvatar(cousin, avatarViewMode)}
+          ${window.renderCousinCardAvatar ? window.renderCousinCardAvatar(cousin, mode) : window.renderCousinAvatar(cousin.id)}
         </div>
 
         <h3 class="cousin-name" style="color: ${cousin.themeColor}">${cousin.name}</h3>
         <p class="cousin-role">${cousin.role}</p>
-        <div class="cousin-quote">${cousin.quote}</div>
+        <div class="cousin-quote" id="quote-${cousin.id}">${cousin.quote}</div>
       </div>
 
       <div class="card-body">
@@ -165,13 +218,12 @@ function renderCousinsSquad() {
           🎨 Silly Dress-Up
         </button>
         <button class="card-action-btn" onclick="playCousinVoice('${cousin.id}')">
-          🔊 Hear Quirks
+          🔊 Hear Voice
         </button>
       </div>
     </div>
   `).join("");
 }
-
 
 function renderStatsBars(cousin) {
   const statLabels = Object.keys(cousin.stats);
@@ -217,9 +269,10 @@ function formatStatName(camelStr) {
 
 // Fun reaction sound and quote for each cousin
 window.playCousinVoice = function(cousinId) {
-  const cousin = getCousinById(cousinId);
+  const cousin = getCousinById ? getCousinById(cousinId) : null;
   if (!cousin) return;
 
+  // 1. Play characteristic sound effect
   if (window.soundFx) {
     if (cousinId === "aaditi") window.soundFx.magic();
     else if (cousinId === "tapasya") window.soundFx.giggle();
@@ -228,11 +281,23 @@ window.playCousinVoice = function(cousinId) {
     else if (cousinId === "ninad") window.soundFx.fart();
   }
 
+  // 2. Animate quote box
+  const quoteEl = document.getElementById(`quote-${cousinId}`);
+  if (quoteEl) {
+    quoteEl.classList.remove("pop-in");
+    void quoteEl.offsetWidth;
+    quoteEl.classList.add("pop-in");
+  }
+
+  // 3. Play voice speech 250ms after sound effect
   if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(`${cousin.name} says: ${cousin.quote}`);
-    utt.pitch = cousin.gender === "F" ? 1.5 : 1.3;
-    window.speechSynthesis.speak(utt);
+    setTimeout(() => {
+      window.speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(`${cousin.name} says: ${cousin.quote}`);
+      utt.pitch = cousin.gender === "F" ? 1.4 : 1.25;
+      utt.rate = 1.02;
+      window.speechSynthesis.speak(utt);
+    }, 250);
   }
 };
 
@@ -254,9 +319,16 @@ function setupDressupLab() {
   const hatPills = document.querySelectorAll(".hat-pill");
   const accPills = document.querySelectorAll(".acc-pill");
 
+  let dressupCousinId = "aaditi";
+  let dressupHat = null;
+  let dressupAccessory = null;
+
   function updatePreview() {
     if (previewEl && window.renderCousinAvatar) {
       previewEl.innerHTML = window.renderCousinAvatar(dressupCousinId, dressupHat, dressupAccessory);
+      previewEl.classList.remove("pop-in");
+      void previewEl.offsetWidth;
+      previewEl.classList.add("pop-in");
     }
   }
 
@@ -272,10 +344,11 @@ function setupDressupLab() {
 
   hatPills.forEach(pill => {
     pill.addEventListener("click", () => {
-      hatPills.forEach(p => p.classList.remove("active"));
       if (dressupHat === pill.dataset.hat) {
         dressupHat = null;
+        pill.classList.remove("active");
       } else {
+        hatPills.forEach(p => p.classList.remove("active"));
         pill.classList.add("active");
         dressupHat = pill.dataset.hat;
       }
@@ -286,10 +359,11 @@ function setupDressupLab() {
 
   accPills.forEach(pill => {
     pill.addEventListener("click", () => {
-      accPills.forEach(p => p.classList.remove("active"));
       if (dressupAccessory === pill.dataset.acc) {
         dressupAccessory = null;
+        pill.classList.remove("active");
       } else {
+        accPills.forEach(p => p.classList.remove("active"));
         pill.classList.add("active");
         dressupAccessory = pill.dataset.acc;
       }
@@ -302,8 +376,8 @@ function setupDressupLab() {
   if (snapBtn) {
     snapBtn.addEventListener("click", () => {
       if (window.soundFx) window.soundFx.tada();
-      if (window.triggerConfetti) window.triggerConfetti();
-      alert(`📸 CHEESE! ${dressupCousinId.toUpperCase()} looks fantastically hilarious!`);
+      if (window.triggerConfetti) window.triggerConfetti(100);
+      showToast(`📸 CHEESE! ${dressupCousinId.toUpperCase()} looks fantastically hilarious!`);
     });
   }
 
@@ -316,11 +390,34 @@ function setupDressupLab() {
       accPills.forEach(p => p.classList.remove("active"));
       if (window.soundFx) window.soundFx.slideWhistle();
       updatePreview();
+      showToast("🔄 Avatar reset back to original look!");
     });
   }
 
   updatePreview();
 }
+
+// ========================================================
+// TOAST NOTIFICATION (Replaces blocking native alert)
+// ========================================================
+function showToast(message) {
+  let toast = document.getElementById("kid-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "kid-toast";
+    toast.className = "kid-toast-banner";
+    document.body.appendChild(toast);
+  }
+
+  toast.innerHTML = `<span>${message}</span>`;
+  toast.classList.add("show");
+
+  clearTimeout(toast.hideTimeout);
+  toast.hideTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3200);
+}
+window.showToast = showToast;
 
 // ========================================================
 // EVENT LISTENERS & SOUNDBOARD
@@ -355,6 +452,7 @@ function setupEventListeners() {
 
   // Joke Reaction Buttons
   const laughBtn = document.getElementById("react-laugh-btn");
+  let laughCount = 42;
   if (laughBtn) {
     laughBtn.addEventListener("click", () => {
       laughCount += 1;
@@ -366,6 +464,7 @@ function setupEventListeners() {
   }
 
   const tomatoBtn = document.getElementById("react-tomato-btn");
+  let tomatoCount = 3;
   if (tomatoBtn) {
     tomatoBtn.addEventListener("click", () => {
       tomatoCount += 1;
@@ -393,10 +492,13 @@ function setupEventListeners() {
     });
   }
 
-  // Soundboard Buttons
+  // Soundboard Buttons with visual press feedback
   const soundBtns = document.querySelectorAll(".sound-pad-btn");
   soundBtns.forEach(btn => {
     btn.addEventListener("click", () => {
+      btn.classList.add("sound-active");
+      setTimeout(() => btn.classList.remove("sound-active"), 280);
+
       const soundType = btn.dataset.sound;
       if (window.soundFx && typeof window.soundFx[soundType] === "function") {
         window.soundFx[soundType]();
@@ -411,24 +513,26 @@ function setupEventListeners() {
       if (window.soundFx) {
         const isMuted = window.soundFx.toggleMute();
         muteBtn.innerText = isMuted ? "🔇 Unmute" : "🔊 Sound On";
+        showToast(isMuted ? "🔇 Sound is Muted" : "🔊 Sound is Unmuted!");
       }
     });
   }
 
-  // Toggle Avatar Style (SVG Vector vs 3D Pixar)
+  // Toggle Avatar Style (3D Pixar vs SVG Vector)
   const avatarModeBtn = document.getElementById("toggle-avatar-mode-btn");
   if (avatarModeBtn) {
     avatarModeBtn.addEventListener("click", () => {
-      avatarViewMode = avatarViewMode === "svg" ? "3d" : "svg";
-      avatarModeBtn.innerText = avatarViewMode === "svg" 
-        ? "✨ Switch to 3D Pixar Avatars" 
-        : "🎨 Switch to Cartoon Vector Avatars";
+      const current = window.appState.getMode();
+      const newMode = current === "3d" ? "svg" : "3d";
+      window.appState.setMode(newMode);
+      avatarModeBtn.innerText = newMode === "3d" 
+        ? "🎨 Switch to Cartoon Vector Avatars" 
+        : "✨ Switch to 3D Pixar Avatars";
       if (window.soundFx) window.soundFx.magic();
       if (window.triggerConfetti) window.triggerConfetti(60);
-      renderCousinsSquad();
+      showToast(newMode === "3d" ? "✨ 3D Pixar Avatars Active!" : "🎨 Cartoon Vector Avatars Active!");
     });
   }
-
 }
 
 // Flying Cartoon Tomato Effect
@@ -440,18 +544,18 @@ function spawnFlyingTomato() {
   tomato.style.left = "50%";
   tomato.style.top = "50%";
   tomato.style.transform = "translate(-50%, -50%) scale(0.2)";
-  tomato.style.transition = "transform 0.5s ease-out, opacity 0.5s ease-out";
+  tomato.style.transition = "transform 0.45s ease-out, opacity 0.45s ease-out";
   tomato.style.zIndex = "99999";
   document.body.appendChild(tomato);
 
   requestAnimationFrame(() => {
-    tomato.style.transform = "translate(-50%, -50%) scale(2.8) rotate(30deg)";
+    tomato.style.transform = "translate(-50%, -50%) scale(2.6) rotate(35deg)";
     setTimeout(() => {
       tomato.innerText = "💥 Splat!";
-      tomato.style.fontSize = "3rem";
+      tomato.style.fontSize = "2.8rem";
       tomato.style.opacity = "0";
-      setTimeout(() => tomato.remove(), 500);
-    }, 450);
+      setTimeout(() => tomato.remove(), 450);
+    }, 400);
   });
 }
 
@@ -476,16 +580,16 @@ function initConfetti() {
   window.triggerConfetti = function(count = 80) {
     for (let i = 0; i < count; i++) {
       particles.push({
-        x: canvas.width * 0.5 + (Math.random() * 200 - 100),
-        y: canvas.height * 0.4 + (Math.random() * 100 - 50),
-        vx: (Math.random() - 0.5) * 16,
-        vy: (Math.random() - 1.2) * 14,
+        x: canvas.width * 0.5 + (Math.random() * 240 - 120),
+        y: canvas.height * 0.38 + (Math.random() * 120 - 60),
+        vx: (Math.random() - 0.5) * 18,
+        vy: (Math.random() - 1.25) * 15,
         size: Math.random() * 10 + 6,
         color: colors[Math.floor(Math.random() * colors.length)],
         rotation: Math.random() * 360,
-        vr: (Math.random() - 0.5) * 12,
+        vr: (Math.random() - 0.5) * 14,
         life: 1.0,
-        decay: Math.random() * 0.015 + 0.01
+        decay: Math.random() * 0.016 + 0.01
       });
     }
   };
