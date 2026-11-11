@@ -34,6 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize The Ultimate Excuse Generator 10,000™
   initExcuseGenerator();
 
+  // Initialize Birthday Countdown Cannon
+  if (window.bdayManager) {
+    window.bdayManager.init();
+  }
+
   // Initialize Dress-Up Lab
   setupDressupLab();
 
@@ -64,7 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Expose global helpers
   window.appState = {
     getMode: () => avatarViewMode,
-    setMode: (m) => { avatarViewMode = m; renderCousinsSquad(); }
+    setMode: (m) => {
+      avatarViewMode = m;
+      renderCousinsSquad();
+      if (window.bdayManager) window.bdayManager.refreshUI();
+    }
   };
 });
 
@@ -580,6 +589,52 @@ function showToast(message) {
   }, 3200);
 }
 window.showToast = showToast;
+
+// ========================================================
+// BIRTHDAY CANNON DATE EDITOR HELPERS
+// ========================================================
+function toggleBdayEditor() {
+  const drawer = document.getElementById("bday-editor-drawer");
+  if (!drawer) return;
+  const isHidden = drawer.style.display === "none" || !drawer.style.display;
+  drawer.style.display = isHidden ? "block" : "none";
+  if (isHidden && window.bdayManager && window.bdayManager.activeMember) {
+    const mem = window.bdayManager.activeMember;
+    const selectMem = document.getElementById("edit-bday-member");
+    const selectMonth = document.getElementById("edit-bday-month");
+    const inputDay = document.getElementById("edit-bday-day");
+    if (selectMem) selectMem.value = mem.id;
+    if (selectMonth) selectMonth.value = String(mem.month);
+    if (inputDay) inputDay.value = String(mem.day);
+  }
+}
+window.toggleBdayEditor = toggleBdayEditor;
+
+function saveCustomBdayDate() {
+  const memberSelect = document.getElementById("edit-bday-member");
+  const monthSelect = document.getElementById("edit-bday-month");
+  const dayInput = document.getElementById("edit-bday-day");
+  if (!memberSelect || !monthSelect || !dayInput) return;
+
+  const memberId = memberSelect.value;
+  const month = parseInt(monthSelect.value, 10);
+  const day = parseInt(dayInput.value, 10);
+
+  if (isNaN(day) || day < 1 || day > 31) {
+    showToast("⚠️ Please enter a valid day between 1 and 31!");
+    return;
+  }
+
+  if (window.bdayManager) {
+    window.bdayManager.updateMemberBirthday(memberId, month, day);
+    if (window.soundFx) window.soundFx.magic();
+    const mem = window.bdayManager.members.find(m => m.id === memberId);
+    const name = mem ? mem.name : "Cousin";
+    showToast(`🎂 Saved new birthday date for ${name}!`);
+    toggleBdayEditor();
+  }
+}
+window.saveCustomBdayDate = saveCustomBdayDate;
 
 // ========================================================
 // EVENT LISTENERS & SOUNDBOARD

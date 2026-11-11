@@ -60,6 +60,7 @@
         <a href="#jokes-section" class="jump-pill">🤪 Joke Machine</a>
         <a href="#excuses-section" class="jump-pill" style="background:#FFF9C4; border-color:#FF8F00;">🤥 Excuse 10,000</a>
         <a href="#cousins-section" class="jump-pill">🧒 Meet the Squad</a>
+        <a href="#birthday-cannon-section" class="jump-pill" style="background:#FCE4EC; border-color:#E91E63;">🎂 Birthday Cannon</a>
         <a href="#dressup-lab-section" class="jump-pill">🎨 Silly Dress-Up</a>
         <a href="#spinner-game-section" class="jump-pill">🎲 Who's Most Likely To?</a>
         <a href="#soundboard-section" class="jump-pill">🔊 Soundboard</a>
@@ -226,6 +227,171 @@
 
       <div id="cousins-grid" class="cousins-grid">
         <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- THE BIRTHDAY COUNTDOWN CANNON! 🎂🎉                      -->
+    <!-- ======================================================== -->
+    <section id="birthday-cannon-section" class="birthday-cannon-section">
+      <div class="section-header">
+        <span class="section-tag" style="background:#FCE4EC; color:#C2185B;">🎉 CAKE PROTOCOL ACTIVATED 🎉</span>
+        <h2 class="section-title">The Birthday Countdown Cannon! 🎂🚀</h2>
+        <p class="section-subtitle">Live ticking down to the exact second for who gets cake next, plus a massive confetti cannon blast!</p>
+      </div>
+
+      <div class="bday-card">
+        <!-- Squad Selector Row -->
+        <div id="bday-squad-selector" class="bday-squad-selector">
+          <!-- Rendered dynamically by birthdays.js -->
+        </div>
+
+        <!-- Main Birthday Stage -->
+        <div class="bday-stage-layout">
+          
+          <!-- Left: Celebrity Profile & Demands -->
+          <div class="bday-profile-panel">
+            <div class="bday-avatar-frame" id="bday-target-avatar">
+              <!-- Avatar rendered here -->
+            </div>
+            <div class="bday-badge-age" id="bday-target-age">Turning Level 9!</div>
+            <h3 id="bday-target-name" class="bday-name">Devansh</h3>
+            <p id="bday-target-role" class="bday-role">The Mad Scientist</p>
+            <div id="bday-target-date" class="bday-date-tag">🎂 Birthday: Nov 28</div>
+
+            <div class="bday-demands-box">
+              <span class="demands-label">🎁 OFFICIAL BIRTHDAY DEMANDS:</span>
+              <p id="bday-target-demands" class="demands-text">
+                A 50,000-piece LEGO fortress, laser safety goggles, and 12 battery packs.
+              </p>
+            </div>
+
+            <div id="bday-target-quote" class="bday-quote">
+              “Every birthday is just a software upgrade into a taller chaos machine!”
+            </div>
+          </div>
+
+          <!-- Right: Clock & The Heavy Cannon -->
+          <div class="bday-cannon-panel">
+            <!-- Status Pill Banner -->
+            <div id="bday-status-banner" class="bday-status-banner">
+              ⚡ <strong>ALMOST PARTY TIME!</strong> Counting down the seconds!
+            </div>
+
+            <!-- 4-Digit Big Flip Countdown -->
+            <div class="bday-countdown-clock">
+              <div class="clock-unit-box">
+                <span id="bday-days" class="clock-digit">00</span>
+                <span class="clock-unit-label">DAYS</span>
+              </div>
+              <span class="clock-colon">:</span>
+              <div class="clock-unit-box">
+                <span id="bday-hours" class="clock-digit">00</span>
+                <span class="clock-unit-label">HOURS</span>
+              </div>
+              <span class="clock-colon">:</span>
+              <div class="clock-unit-box">
+                <span id="bday-mins" class="clock-digit">00</span>
+                <span class="clock-unit-label">MINS</span>
+              </div>
+              <span class="clock-colon">:</span>
+              <div class="clock-unit-box">
+                <span id="bday-secs" class="clock-digit">00</span>
+                <span class="clock-unit-label">SECS</span>
+              </div>
+            </div>
+
+            <!-- The Cartoon Party Cannon Graphic -->
+            <div class="cannon-container">
+              <svg id="birthday-cannon-graphic" class="cannon-svg" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Smoke puffs on sizzle/fire -->
+                <circle cx="240" cy="40" r="14" fill="#E2E8F0" class="cannon-smoke smoke-1" opacity="0" />
+                <circle cx="265" cy="25" r="20" fill="#CBD5E1" class="cannon-smoke smoke-2" opacity="0" />
+                <circle cx="285" cy="15" r="12" fill="#94A3B8" class="cannon-smoke smoke-3" opacity="0" />
+
+                <!-- Wooden Mount / Platform -->
+                <polygon points="50,155 180,155 160,110 70,110" fill="#795548" stroke="#3E2723" stroke-width="4" />
+                <line x1="80" y1="125" x2="150" y2="125" stroke="#4E342E" stroke-width="3" />
+
+                <!-- Cannon Barrel (Aimed up and right) -->
+                <g transform="translate(100, 110) rotate(-28)">
+                  <!-- Sizzle Fuse -->
+                  <path d="M-55 -5 Q-70 -20 -60 -35" stroke="#E65100" stroke-width="3" fill="none" stroke-linecap="round" />
+                  <!-- Spark on Fuse -->
+                  <circle cx="-60" cy="-35" r="5" fill="#FFD600" class="fuse-spark" />
+
+                  <!-- Main Metal Barrel -->
+                  <path d="M-60 -25 L110 -15 L110 25 L-60 25 Z" fill="#37474F" stroke="#212121" stroke-width="4" />
+                  <!-- Metal Rings / Bands -->
+                  <rect x="-10" y="-22" width="16" height="45" fill="#FFC107" stroke="#FFA000" stroke-width="2" />
+                  <rect x="50" y="-18" width="16" height="40" fill="#FFC107" stroke="#FFA000" stroke-width="2" />
+                  <!-- Cannon Muzzle Lip -->
+                  <ellipse cx="110" cy="5" rx="8" ry="22" fill="#E53935" stroke="#B71C1C" stroke-width="3" />
+                  <!-- Stars on barrel -->
+                  <text x="20" y="8" font-size="16" fill="#FFF" font-weight="bold">🎉</text>
+                </g>
+
+                <!-- Heavy Wooden Wheels -->
+                <circle cx="85" cy="140" r="30" fill="#8D6E63" stroke="#3E2723" stroke-width="5" />
+                <circle cx="85" cy="140" r="12" fill="#FFD54F" stroke="#B71C1C" stroke-width="3" />
+                <line x1="85" y1="110" x2="85" y2="170" stroke="#3E2723" stroke-width="3" />
+                <line x1="55" y1="140" x2="115" y2="140" stroke="#3E2723" stroke-width="3" />
+
+                <circle cx="145" cy="140" r="30" fill="#8D6E63" stroke="#3E2723" stroke-width="5" />
+                <circle cx="145" cy="140" r="12" fill="#FFD54F" stroke="#B71C1C" stroke-width="3" />
+                <line x1="145" y1="110" x2="145" y2="170" stroke="#3E2723" stroke-width="3" />
+                <line x1="115" y1="140" x2="175" y2="140" stroke="#3E2723" stroke-width="3" />
+              </svg>
+            </div>
+
+            <!-- Firing Controls -->
+            <div class="bday-controls">
+              <button id="fire-cannon-btn" class="btn-primary fire-cannon-btn" onclick="window.bdayManager.fireCannon()">
+                💥 FIRE THE BIRTHDAY CANNON!
+              </button>
+              <button id="play-bday-tune-btn" class="btn-secondary" onclick="window.bdayManager.playBirthdayTune()">
+                🎶 Play Birthday Tune
+              </button>
+              <button id="open-bday-editor-btn" class="btn-secondary" onclick="toggleBdayEditor()">
+                ✏️ Edit Dates
+              </button>
+            </div>
+
+            <!-- Quick Birthday Date Editor Drawer -->
+            <div id="bday-editor-drawer" class="bday-editor-drawer" style="display:none;">
+              <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:8px;">✏️ Update Real Birthday Date</h4>
+              <div class="bday-edit-inputs">
+                <select id="edit-bday-member" class="bday-select-input">
+                  <option value="devansh">Devansh</option>
+                  <option value="virat">Virat</option>
+                  <option value="ninad">Ninad</option>
+                  <option value="tapasya">Tapasya</option>
+                  <option value="aaditi">Aaditi</option>
+                  <option value="mayur">Mayur Mama</option>
+                </select>
+                <select id="edit-bday-month" class="bday-select-input">
+                  <option value="1">Jan</option>
+                  <option value="2">Feb</option>
+                  <option value="3">Mar</option>
+                  <option value="4">Apr</option>
+                  <option value="5">May</option>
+                  <option value="6">Jun</option>
+                  <option value="7">Jul</option>
+                  <option value="8">Aug</option>
+                  <option value="9">Sep</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="12">Dec</option>
+                </select>
+                <input id="edit-bday-day" type="number" min="1" max="31" value="1" class="bday-select-input" style="width: 70px;" />
+                <button class="btn-primary" style="padding: 6px 14px; font-size: 0.85rem;" onclick="saveCustomBdayDate()">
+                  💾 Save Date
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
 
@@ -448,6 +614,7 @@
   <script src="js/avatars.js"></script>
   <script src="js/spinner.js"></script>
   <script src="js/excuses.js"></script>
+  <script src="js/birthdays.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
