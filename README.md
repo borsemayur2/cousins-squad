@@ -9,9 +9,10 @@ The official funny, humorous kids website for the ultimate cousin crew:
 
 ---
 
-## 🚀 Live Website
-The website is deployed and live at:
-👉 **[https://borsemayur2.github.io/cousins-squad/](https://borsemayur2.github.io/cousins-squad/)**
+## 🚀 Live Deployments
+- 👉 **Surge**: **[https://cousins-squad.surge.sh/](https://cousins-squad.surge.sh/)**
+- 👉 **GitHub Pages**: **[https://borsemayur2.github.io/cousins-squad/](https://borsemayur2.github.io/cousins-squad/)**
+
 
 ---
 
