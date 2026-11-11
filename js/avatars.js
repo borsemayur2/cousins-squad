@@ -396,6 +396,13 @@ const AVATAR_SVGS = {
         <text x="23" y="19" font-size="13" text-anchor="middle">🔥🎮</text>
       </g>
 
+      <!-- Comic Speech Bubble: "PAGAL!" (Confused 24/7) -->
+      <g class="animated-float" transform="translate(130, 22)">
+        <polygon points="12,24 8,30 18,25" fill="#FFF" stroke="#212121" stroke-width="1.5" />
+        <rect x="0" y="0" width="56" height="24" rx="6" fill="#FFF" stroke="#212121" stroke-width="2" />
+        <text x="28" y="17" font-family="'Fredoka', sans-serif" font-size="11" font-weight="900" fill="#D32F2F" text-anchor="middle">PAGAL!</text>
+      </g>
+
       <!-- Soft Green Sofa Cushion & Pizza Snack -->
       <g transform="translate(20, 114)">
         <rect x="0" y="0" width="36" height="26" rx="8" fill="#81C784" stroke="#388E3C" stroke-width="1.8" />

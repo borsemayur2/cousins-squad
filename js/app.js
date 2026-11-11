@@ -442,6 +442,8 @@ function formatStatName(camelStr) {
     sittingStillMinutes: "Sitting Still Time",
     freeFireKills: "Free Fire Skills 🔥",
     sofaAdhesion: "Sofa Stickiness 🛋️",
+    confusionLevel: "Confusion Level 😵",
+    pagalPerMinute: "'PAGAL!' / Minute 🗣️",
     missingTeethRate: "Missing Teeth % 🦷",
     snackSuctionPower: "Snack Inhale Suction 🍕",
     appetiteForSnacks: "Snack Appetite 🍕",
@@ -479,7 +481,13 @@ window.playCousinVoice = function(cousinId) {
     else if (cousinId === "tapasya") window.soundFx.giggle();
     else if (cousinId === "devansh") window.soundFx.boing();
     else if (cousinId === "virat") window.soundFx.slideWhistle();
-    else if (cousinId === "ninad") window.soundFx.fart();
+    else if (cousinId === "ninad") {
+      if (typeof window.soundFx.pagal === "function") {
+        window.soundFx.pagal();
+      } else {
+        window.soundFx.honk();
+      }
+    }
     else if (cousinId === "mayur") window.soundFx.techBeep();
   }
 

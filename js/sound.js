@@ -413,6 +413,26 @@ class CartoonSoundEngine {
       console.warn("Audio tada error:", e);
     }
   }
+
+  // 🗣️ Ninad's Signature "PAGAL!" Sound (Fires when confused - which is 24/7!)
+  pagal() {
+    this.honk();
+    setTimeout(() => this.slideWhistle(), 140);
+
+    if ('speechSynthesis' in window) {
+      setTimeout(() => {
+        window.speechSynthesis.cancel();
+        const utt = new SpeechSynthesisUtterance("Pagal!");
+        utt.pitch = 1.65;
+        utt.rate = 1.15;
+        window.speechSynthesis.speak(utt);
+      }, 160);
+    }
+
+    if (window.showToast) {
+      window.showToast("🗣️ Ninad: “PAGAL! ...Wait, what did you just ask me? PAGAL!” 😵");
+    }
+  }
 }
 
 // Global sound instance

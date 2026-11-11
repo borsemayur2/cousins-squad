@@ -157,27 +157,34 @@ const COUSINS_DATA = [
     bdayDay: 25,
     themeColor: "#4CAF50",
     bgColor: "#E8F5E9",
-    badge: "🛋️ HORIZONTAL ON SOFA • MOST TEETH MISSING 🦷",
-    loves: ["🎮 Free Fire Mobile Gaming", "🍕 Non-stop Food & Snacks", "🦷 Showing Off His Missing Teeth Gap", "🛋️ Never Leaving the Couch"],
-    tagline: "Has most teeth missing, but zero cares given! Inhales snacks through the gaps and dominates Free Fire horizontally.",
-    quote: "“Who needs front teeth when you can inhale pizza like a vacuum cleaner?! Also, don't block my Free Fire WiFi!”",
-    superpower: "🦷 Gappy Whistle Siren: Can whistle loudly right through the giant missing-teeth window in his smile to summon snacks without moving.",
+    badge: "🛋️ COUCH POTATO • SAYS 'PAGAL!' 24/7 • MOST TEETH MISSING 🦷",
+    loves: [
+      "🗣️ Yelling 'PAGAL!' When Confused (Always)",
+      "🎮 Free Fire Mobile Gaming",
+      "🍕 Non-stop Food & Snacks",
+      "🦷 Showing Off His Missing Teeth Gap",
+      "🛋️ Never Leaving the Couch"
+    ],
+    tagline: "Most teeth missing, 100% glued to the sofa, and yells 'PAGAL!' whenever he gets confused (which is literally all the time).",
+    quote: "“PAGAL! ...Wait, what did you just ask me? PAGAL HAI KYA?!”",
+    superpower: "🗣️ Universal 'PAGAL!' Deflector: Whenever confronted with math homework, chores, or adult logic, simply blinks through his missing teeth and yells 'PAGAL!' until the problem goes away.",
     stats: {
       freeFireKills: 100,
       sofaAdhesion: 100,
-      missingTeethRate: 85,
-      snackSuctionPower: 99
+      confusionLevel: 100,
+      pagalPerMinute: 99,
+      missingTeethRate: 85
     },
-    bustedFor: "Claiming the Tooth Fairy stole all his missing teeth, all the cookies, and the TV remote while he was napping on the couch.",
-    mostLikelyTo: "Flash his hilarious gappy window smile on video calls while simultaneously clutching an impossible 1v4 Free Fire victory.",
-    secretWeapon: "The Gummy Window Grin™ that melts anyone's anger when he refuses to get off the sofa.",
-    weakness: "Corn on the cob, crunchy apples, and anything requiring more than 2 teeth to chew.",
-    funFact: "Has fewer teeth than anyone in the house, but eats pizza faster than Devansh, Virat, and Mayur Mama combined!",
+    bustedFor: "Calling the math textbook, the ceiling fan, and the family refrigerator 'PAGAL' because he couldn't figure them out.",
+    mostLikelyTo: "Yell 'PAGAL!' at his tablet screen after walking directly into an enemy trap in Free Fire.",
+    secretWeapon: "The Sudden 'PAGAL!' Stun Grenade™ that confuses everyone else until they give up and leave him on the couch.",
+    weakness: "Being asked a straightforward question like 'What is 2 + 2?' (Instant Confusion ➔ 'PAGAL!').",
+    funFact: "Science confirms Ninad has never experienced a single moment of clarity; his default state is 100% confusion accompanied by shouting 'PAGAL!'",
     avatarSvgProps: {
       hair: "curly-messy",
       accessory: "gaming-tablet-fire",
       glasses: "none",
-      expression: "missing-teeth-grin"
+      expression: "missing-teeth-pagal-grin"
     },
     imageFile: "public/avatars/ninad.jpg"
   },

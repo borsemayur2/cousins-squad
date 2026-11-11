@@ -36,7 +36,7 @@ const DEFAULT_BIRTHDAYS = [
     birthYear: 2021,
     themeColor: "#4CAF50",
     sillyDemands: "10,000 Free Fire diamonds, crustless soft pizza for my missing teeth, full payout from the Tooth Fairy, and a 15-meter tablet charger!",
-    funQuote: "“On March 25th, I will smile with my giant tooth gap, clutch a Free Fire match, and inhale cake without chewing!”"
+    funQuote: "“On March 25th, whoever asks me to get off the sofa or do math homework is officially PAGAL!”"
   },
   {
     id: "tapasya",

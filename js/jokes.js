@@ -463,6 +463,13 @@ const JOKES_DATABASE = [
     setup: "What did the Tooth Fairy say after visiting Ninad's couch?",
     punchline: "'I ran out of cash! This kid has a window smile and traded 6 teeth for Free Fire diamonds!' 🧚‍♂️🦷🎮",
     emoji: "🧚‍♂️"
+  },
+  {
+    id: 67,
+    category: "Cousin Chaos",
+    setup: "What does Ninad say when you ask him a simple question like 'What is 5 + 5?'",
+    punchline: "He blinks through his missing teeth, looks completely confused (as usual), and shouts: 'PAGAL!' 🗣️🤯🦷🤣",
+    emoji: "🤪"
   }
 ];
 
