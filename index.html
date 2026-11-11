@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Chaos Cousins Squad 🎪 | Aaditi, Tapasya, Devansh, Virat & Ninad</title>
+  <meta name="description" content="The official hilarious kids website for the Chaos Cousins: Aaditi (eldest boss), Tapasya, Devansh, Virat, and Ninad! Random jokes on every reload, soundboard, avatar dress-up and games!">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤪</text></svg>">
+</head>
+<body>
+
+  <!-- Canvas Confetti Layer -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Floating Background Kid Stickers -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="floating-sticker sticker-1">👑</div>
+    <div class="floating-sticker sticker-2">🎤</div>
+    <div class="floating-sticker sticker-3">🚀</div>
+    <div class="floating-sticker sticker-4">🏏</div>
+    <div class="floating-sticker sticker-5">🍪</div>
+    <div class="floating-sticker sticker-6">🍕</div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">🎪</span>
+      <span>THE COUSINS CLUB</span>
+    </a>
+    <div class="nav-actions">
+      <button id="mute-toggle-btn" class="nav-btn" title="Toggle Sound">
+        🔊 Sound On
+      </button>
+      <button id="party-toggle-btn" class="nav-btn party-toggle-btn" title="Turn on Disco Lights!">
+        🎉 Disco Party!
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Header -->
+    <section class="hero">
+      <div class="hero-pill">⚡ OFFICIAL COUSIN HEADQUARTERS ⚡</div>
+      <h1 class="hero-title">THE CHAOS COUSINS!</h1>
+      <p class="hero-subtitle">
+        Starring <span class="highlight-box">👑 Aaditi</span> (the eldest boss), 
+        <span class="highlight-box">🎤 Tapasya</span>, 
+        <span class="highlight-box">🤖 Devansh</span>, 
+        <span class="highlight-box">⚡ Virat</span>, and 
+        <span class="highlight-box">🍪 Ninad</span>!
+        <br>Strictly No Boring Grown-ups Allowed (Unless they brought pizza 🍕).
+      </p>
+
+      <!-- Quick Nav Pills -->
+      <nav class="hero-pills-nav" aria-label="Page navigation">
+        <a href="#jokes-section" class="jump-pill">🤪 Joke Machine</a>
+        <a href="#cousins-section" class="jump-pill">🧒 Meet the Squad</a>
+        <a href="#dressup-lab-section" class="jump-pill">🎨 Silly Dress-Up</a>
+        <a href="#spinner-game-section" class="jump-pill">🎲 Who's Most Likely To?</a>
+        <a href="#soundboard-section" class="jump-pill">🔊 Soundboard</a>
+        <a href="#rules-section" class="jump-pill">📜 Cousin Rules</a>
+      </nav>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 1. JOKE MACHINE (Loads randomly on reload + Interactive) -->
+    <!-- ======================================================== -->
+    <section id="jokes-section" class="joke-machine-section">
+      <div class="section-header">
+        <span class="section-tag">✨ Laugh Out Loud!</span>
+        <h2 class="section-title">The Random Joke Machine 🤪</h2>
+        <p class="section-subtitle">Reload the page anytime for a fresh giggle, or hit the button below!</p>
+      </div>
+
+      <div class="joke-card">
+        <span id="joke-category-badge" class="joke-card-badge">Cousin Chaos</span>
+        <span class="joke-card-reload-indicator">🔄 Auto-refreshes on reload!</span>
+        
+        <div id="joke-emoji" class="joke-emoji-bubble">👑</div>
+        <p id="joke-setup" class="joke-setup">Loading your hilarious joke...</p>
+        
+        <div id="punchline-box" class="punchline-container">
+          <button id="reveal-btn" class="reveal-punchline-btn">
+            🥁 Reveal Silly Punchline!
+          </button>
+        </div>
+
+        <div class="joke-actions">
+          <button id="new-joke-btn" class="btn-primary">
+            🔀 Another Silly Joke!
+          </button>
+          <button id="voice-joke-btn" class="btn-secondary" title="Read joke in silly cartoon voice">
+            🗣️ Read Aloud
+          </button>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="category-filter-chips">
+          <button class="category-chip active" data-category="All">🌟 All Jokes</button>
+          <button class="category-chip" data-category="Cousin Chaos">👑 Cousin Chaos</button>
+          <button class="category-chip" data-category="Animal Giggles">🐶 Animals</button>
+          <button class="category-chip" data-category="Food Fun">🍕 Food Fun</button>
+          <button class="category-chip" data-category="Knock-Knock">🚪 Knock-Knock</button>
+          <button class="category-chip" data-category="Sports & Speed">🏏 Sports</button>
+          <button class="category-chip" data-category="School Shenanigans">📚 School</button>
+        </div>
+
+        <!-- Laugh Reactions -->
+        <div class="joke-reactions-bar">
+          <button id="react-laugh-btn" class="reaction-btn" title="That was hilarious!">
+            😂 ROFL (<span id="laugh-counter">42</span>)
+          </button>
+          <button id="react-tomato-btn" class="reaction-btn" title="Throw a cartoon tomato!">
+            🍅 BOOO (<span id="tomato-counter">3</span>)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 2. MEET THE SQUAD (Cards for all 5 cousins)               -->
+    <!-- ======================================================== -->
+    <section id="cousins-section" class="cousins-section">
+      <div class="section-header">
+        <span class="section-tag">🌟 VIP Members</span>
+        <h2 class="section-title">Meet The Chaos Cousins 🧒</h2>
+        <p class="section-subtitle">Click on their avatars to hear their funny catchphrases and sound effects!</p>
+        <div style="margin-top: 14px;">
+          <button id="toggle-avatar-mode-btn" class="nav-btn" style="display: inline-flex; margin: 0 auto; background: #E0F2FE;">
+            ✨ Switch to 3D Pixar Avatars
+          </button>
+        </div>
+      </div>
+
+
+      <div id="cousins-grid" class="cousins-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 3. INTERACTIVE SILLY AVATAR DRESS-UP LAB                 -->
+    <!-- ======================================================== -->
+    <section id="dressup-lab-section" class="dressup-section">
+      <div class="section-header">
+        <span class="section-tag">🎨 Cartoon Studio</span>
+        <h2 class="section-title">Silly Avatar Dress-Up Lab 🥸</h2>
+        <p class="section-subtitle">Pick any cousin and put wacky hats, funny glasses, and silly props on them!</p>
+      </div>
+
+      <div class="dressup-cousin-selector">
+        <button class="cousin-select-pill active" data-cousin="aaditi">👑 Aaditi (Eldest)</button>
+        <button class="cousin-select-pill" data-cousin="tapasya">🎤 Tapasya</button>
+        <button class="cousin-select-pill" data-cousin="devansh">🤖 Devansh</button>
+        <button class="cousin-select-pill" data-cousin="virat">⚡ Virat</button>
+        <button class="cousin-select-pill" data-cousin="ninad">🍪 Ninad</button>
+      </div>
+
+      <div class="dressup-layout">
+        <div class="dressup-preview-card">
+          <div id="dressup-preview-avatar" class="dressup-avatar-big">
+            <!-- Rendered by avatars.js -->
+          </div>
+          <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+            <button id="snap-photo-btn" class="btn-primary" style="font-size: 0.95rem; padding: 10px 20px;">
+              📸 Snap Photo!
+            </button>
+            <button id="reset-dressup-btn" class="btn-secondary" style="font-size: 0.95rem; padding: 10px 16px;">
+              🔄 Reset Gear
+            </button>
+          </div>
+        </div>
+
+        <div class="dressup-controls">
+          <div>
+            <h4 class="controls-group-title">🎩 Pick a Silly Hat:</h4>
+            <div class="prop-pills-row">
+              <button class="prop-pill hat-pill" data-hat="party">🥳 Party Cone</button>
+              <button class="prop-pill hat-pill" data-hat="pirate">🏴‍☠️ Pirate Captain</button>
+              <button class="prop-pill hat-pill" data-hat="alien">👽 Alien Antenna</button>
+              <button class="prop-pill hat-pill" data-hat="chef">👨‍🍳 Chef Hat</button>
+              <button class="prop-pill hat-pill" data-hat="viking">🪓 Viking Horns</button>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="controls-group-title">🥸 Pick a Silly Face Prop:</h4>
+            <div class="prop-pills-row">
+              <button class="prop-pill acc-pill" data-acc="mustache">🥸 Groucho Mustache</button>
+              <button class="prop-pill acc-pill" data-acc="clown-nose">🔴 Red Clown Nose</button>
+              <button class="prop-pill acc-pill" data-acc="bubblegum">🫧 Giant Bubblegum</button>
+              <button class="prop-pill acc-pill" data-acc="cool-shades">😎 Cool Shutter Shades</button>
+            </div>
+          </div>
+
+          <div style="background: #FFF9C4; border: 2px dashed #FBC02D; padding: 14px; border-radius: 16px;">
+            <p style="font-size: 0.9rem; font-weight: 700; color: #5D4037;">
+              💡 <strong>Cousin Secret:</strong> Even when you put alien antennas on Aaditi, she still claims she is the eldest of the planet! 👽👑
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 4. WHO IS MOST LIKELY TO...? (SPINNER GAME)              -->
+    <!-- ======================================================== -->
+    <section id="spinner-game-section" class="spinner-section">
+      <div class="section-header">
+        <span class="section-tag">🎲 Cousin Roulette</span>
+        <h2 class="section-title">Who Is Most Likely To...? 🤔</h2>
+        <p class="section-subtitle">Hit the button to find out which cousin is guilty of the funniest crime!</p>
+      </div>
+
+      <div id="spinner-container" class="spinner-display">
+        <div id="spinner-question" class="spinner-question-box">
+          "Who is most likely to eat the frosting off all the cupcakes and blame the family dog?"
+        </div>
+
+        <div id="spinner-result" class="spinner-result-card">
+          <div id="spinner-avatar" class="spinner-avatar-box">
+            <!-- Avatar rendered here -->
+          </div>
+          <h3 id="spinner-name" class="spinner-winner-name">🎯 IT'S NINAD!</h3>
+          <p id="spinner-reason" class="spinner-winner-reason">
+            Because Ninad believes frosting is a public service and cupcake bottoms are optional! 🧁🕵️‍♂️
+          </p>
+        </div>
+      </div>
+
+      <button id="spinner-btn" class="spin-the-wheel-btn">
+        🎲 SPIN THE WHEEL!
+      </button>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 5. CARTOON SOUNDBOARD                                    -->
+    <!-- ======================================================== -->
+    <section id="soundboard-section" class="soundboard-section">
+      <div class="section-header">
+        <span class="section-tag">🔊 100% Kid Sounds</span>
+        <h2 class="section-title">The Chaos Soundboard 📢</h2>
+        <p class="section-subtitle">Click the buttons to play funny cartoon sound effects instantly!</p>
+      </div>
+
+      <div class="soundboard-grid">
+        <button class="sound-pad-btn" data-sound="fart" style="border-color: #8D6E63;">
+          <span class="sound-icon">💨</span>
+          <span class="sound-name">Whoopee Cushion</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="boing" style="border-color: #FF7043;">
+          <span class="sound-icon">🦘</span>
+          <span class="sound-name">Boing Spring</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="honk" style="border-color: #FFD54F;">
+          <span class="sound-icon">🎺</span>
+          <span class="sound-name">Clown Horn</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="slideWhistle" style="border-color: #42A5F5;">
+          <span class="sound-icon">🍌</span>
+          <span class="sound-name">Banana Slip</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="rimshot" style="border-color: #AB47BC;">
+          <span class="sound-icon">🥁</span>
+          <span class="sound-name">Ba-Dum-Tss!</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="magic" style="border-color: #EC407A;">
+          <span class="sound-icon">✨</span>
+          <span class="sound-name">Magic Sparkle</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="giggle" style="border-color: #66BB6A;">
+          <span class="sound-icon">🤣</span>
+          <span class="sound-name">Silly Giggle</span>
+        </button>
+        <button class="sound-pad-btn" data-sound="tada" style="border-color: #FFA726;">
+          <span class="sound-icon">🎉</span>
+          <span class="sound-name">Ta-Da Fanfare</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 6. THE COUSIN CONSTITUTION (Funny House Rules)           -->
+    <!-- ======================================================== -->
+    <section id="rules-section" class="rules-section">
+      <div class="section-header">
+        <span class="section-tag">📜 Official Law</span>
+        <h2 class="section-title">The Cousin Constitution ⚖️</h2>
+        <p class="section-subtitle">Ratified by Aaditi, Tapasya, Devansh, Virat, and signed in cookie crumbs by Ninad.</p>
+      </div>
+
+      <div class="rules-list">
+        <div class="rule-item">
+          <div class="rule-num">1</div>
+          <div class="rule-text">
+            <strong>Rule #1 (The Eldest Decree):</strong> Aaditi gets first pick of the TV remote, movie snacks, and beanbag chair. If you argue, she will remind you she was born first for 20 minutes straight.
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">2</div>
+          <div class="rule-text">
+            <strong>Rule #2 (The Mystery Breakage Clause):</strong> If a toy, vase, or cardboard fortress breaks, all cousins shall immediately look shocked and blame "a rogue wind draft" or the family goldfish.
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">3</div>
+          <div class="rule-text">
+            <strong>Rule #3 (The Hallway Grand Prix):</strong> Hallways are not for walking; they are strictly for Mach 3 cricket sprints (Virat), musical theater twirls (Tapasya), or stealth creeping (Ninad).
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">4</div>
+          <div class="rule-text">
+            <strong>Rule #4 (The LEGO Safety Treaty):</strong> Devansh must announce the coordinates of all newly built LEGO mines before lights-out to prevent foot casualties.
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">5</div>
+          <div class="rule-text">
+            <strong>Rule #5 (The Bedtime Myth):</strong> "Bedtime" is merely a philosophical suggestion. Blanket forts remain sovereign nations until at least the third warning from mom.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p class="footer-text">
+      Made with 💖, laughter, and zero adult supervision for the greatest cousins in the galaxy!
+    </p>
+    <div class="footer-signatures">
+      <span class="footer-tag">👑 Aaditi (Eldest Boss)</span>
+      <span class="footer-tag">🎤 Tapasya (Popstar)</span>
+      <span class="footer-tag">🤖 Devansh (Inventor)</span>
+      <span class="footer-tag">⚡ Virat (Speedster)</span>
+      <span class="footer-tag">🍪 Ninad (Ninja Bandit)</span>
+    </div>
+    <p style="font-size: 0.8rem; color: #94A3B8; margin-top: 15px;">
+      © The Chaos Cousins Squad • Laughs Guaranteed • No Refunds on Stolen Cookies
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/jokes.js"></script>
+  <script src="js/cousins.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/avatars.js"></script>
+  <script src="js/spinner.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
